@@ -19,6 +19,7 @@ A description of the data set can be found in the appendix.
 ### 6. Appendix
 
 Feature |	Non-null Values |	Data Type
+--------|-----------------|----------
 Id	| 7000	| Integer (64)
 Host is super host	| 7000 |	Object
 Host total listings count	| 7000	| Integer (64)
