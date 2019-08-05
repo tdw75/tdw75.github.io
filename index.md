@@ -4,11 +4,11 @@
 
 ### Category Name 1 
 
-[The Effect of Company Sentiment on Stock Volatility](/stock_volatility)
+[The Effect of Company Sentiment on Stock Volatility](/stock_volatility/stock_volatility.md)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[Building a Pricing Recommendation System for AirBnB Listings](/airbnb_pricing.md)
+[Building a Pricing Recommendation System for AirBnB Listings](/airbnb_pricing/airbnb_pricing.md)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
