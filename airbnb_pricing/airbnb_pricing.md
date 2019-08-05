@@ -8,7 +8,7 @@ A description of the training set can be found in the appendix.
 
 The training set contains 7,000 listings and 28 independent variables as well as the target variable (price). The listing prices ranged from $13 per night to $5,000, with a mean of $152.19 and a median of $119.00. This imlpies a relatively significant right skew, which is typical for price data such as this. The distribution can be seen below.
 
-<img src="images/Response_distribtion.png?raw=true"/>
+<img src="Response_distribtion.png?raw=true"/>
 
 ### 2. Data Cleaning, Processing, and Wrangling
 
