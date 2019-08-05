@@ -22,6 +22,12 @@ With a number of very similar independent variables in the dataset, high multico
 
 <img src="images/Correlation_matrix.png?raw=true"/>
 
+As seen above, the review scores display a high positive correlation. This is logical, one would expect that a listing that is reviewed highly in one area would often also score highly in others. Additionally, review_score_rating is an aggregation of the rest of the scores; this implies perfect multicollinearity, which would need to be addressed through feature engineering. 
+
+Variables to do with the size of the property (accomodates, bedrooms, bathrooms, beds, security_deposit, and cleaning_fee) are also highly correlated.
+
+Based off the insights gained from the EDA, it was hypothesised that due to the non-linearity and relatively high dimensionality of the data, linear models could struggle to capture the various relationships between the variables and would therefore perform poorly during prediction. Instead, it was thought that non-linear methods would be superior in this case. The hypothesis is challenged and tested during the model estimation process.
+
 ### 2. Data Cleaning, Processing, and Wrangling
 
 ### 3. Feature Engineering
