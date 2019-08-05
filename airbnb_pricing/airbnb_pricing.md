@@ -8,11 +8,11 @@ A description of the training set can be found in the appendix.
 
 The training set contains 7,000 listings and 28 independent variables as well as the target variable (price). The listing prices ranged from $13 per night to $5,000, with a mean of $152.19 and a median of $119.00. This implies a relatively significant right skew, which can be seen in distribution below.
 
-<img src="images/Response_distribtion.png?raw=true"/>
+<img src="images/Response_distribution.png?raw=true"/>
 
 The heavy right skew and presence of outliers are typical of price data such as this and can cause some problems during estimation. As such, a log-transformation of the data was performed, which resulted in a much more symmetrical and "modelling-friendly" distribution.
 
-<img src="images/Log_response_distribtion.png?raw=true"/>
+<img src="images/Log_response_distribution.png?raw=true"/>
 
 ### 2. Data Cleaning, Processing, and Wrangling
 
