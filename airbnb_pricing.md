@@ -2,11 +2,11 @@
 
 **Project description:** This project was completed as an assessment piece for a machine learning and data science unit at the University of Sydney. For this  assignment, we were given a data set of AirBnB listings in Melbourne and were tasked with using statistical learning methods to build a pricing recommendation system. 
 
-A description of the data set can be found in the appendix.
+A description of the training set can be found in the appendix.
 
 ### 1. Exploratory Data Analysis
 
-
+The training set contains 7,000 listings and 28 independent variables as well as the target variable (price). The listing prices ranged from $13 per night to $5,000, with a mean of $152.19 and a median of $119.00. This imlpies a relatively significant right skew, which is typical for price data such as this. The distribution can be seen below.
 
 ### 2. Data Cleaning, Processing, and Wrangling
 
