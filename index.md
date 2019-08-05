@@ -8,11 +8,11 @@
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[Building a Pricing Recommendation System for AirBnB Listings](/pdf/sample_presentation.pdf)
+[Building a Pricing Recommendation System for AirBnB Listings](airbnb_pricing)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[Project 3 Title](http://example.com/)
+[Project 3 Title](/pdf/sample_presentation.pdf)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
