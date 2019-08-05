@@ -4,7 +4,7 @@
 
 ### Category Name 1 
 
-[The Effect of Company Sentiment on Stock Volatility](/sample_page)
+[The Effect of Company Sentiment on Stock Volatility](/stock_volatility)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
