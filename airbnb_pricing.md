@@ -37,17 +37,17 @@ Cleaning fee	| 5608	| Float (64)
 Extra people	| 7000	| Integer (64)
 Minimum nights	| 7000	| Integer (64)
 Maximum nights	| 7000	| Integer (64)
-Number of reviews	7000	Integer (64)
-Review score rating	5646	Float (64)
-Review score accuracy	5638	Float (64)
-Review score cleanliness	5642	Float (64)
-Review score check-in	5635	Float (64)
-Review score communication	5640	Float (64)
-Review score location	5636	Float (64)
-Review score value	5634	Float (64)
-Instant bookable	7000	Object
-Cancellation policy	7000	Object
-Reviews per month	5769	Float (64)
+Number of reviews	| 7000	| Integer (64)
+Review score rating	| 5646	| Float (64)
+Review score accuracy	| 5638	| Float (64)
+Review score cleanliness	| 5642	| Float (64)
+Review score check-in	| 5635	| Float (64)
+Review score communication	| 5640	| Float (64)
+Review score location	| 5636	| Float (64)
+Review score value	| 5634	| Float (64)
+Instant bookable	| 7000	| Object
+Cancellation policy	| 7000	| Object
+Reviews per month	| 5769	| Float (64)
 
 
 ### 1. Suggest hypotheses about the causes of observed phenomena
