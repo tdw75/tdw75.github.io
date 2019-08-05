@@ -8,7 +8,7 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
 
 ```python
 if is_awesome:
-  return = true
+  print(true)
 
 ```
 
