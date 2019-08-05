@@ -8,7 +8,7 @@
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[Building a Pricing Recommendation System for AirBnB Listings](/airbnb_pricing)
+[Building a Pricing Recommendation System for AirBnB Listings](/airbnb_pricing.md)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
