@@ -10,9 +10,17 @@ The training set contains 7,000 listings and 28 independent variables as well as
 
 <img src="images/Response_distribution.png?raw=true"/>
 
-The heavy right skew and presence of outliers are typical of price data such as this and can cause some problems during estimation. As such, a log-transformation of the data was performed, which resulted in a much more symmetrical and "modelling-friendly" distribution.
+The heavy right skew and presence of outliers are typical of price data such as this and can cause some problems during estimation. As such, a log-transformation of the data was performed, which resulted in a much more symmetrical and "modelling-friendly" distribution. 
 
 <img src="images/Log_response_distribution.png?raw=true"/>
+
+Of the independent variables, six were categorical, and would thus require further feature engineering in order to be useable. Additonally, latitude and longitude offer no information in their current state; further processing would be required to derive useful insights. A pairwise comparison of each (numerical) independent variable with respect to the price/log price revealed that the majority of variables do not share a linear relationship with the target variable.
+
+<img src="images/______.png?raw=true"/>
+
+With a number of very similar independent variables in the dataset, high multicollinearity was likely to pose a problem. The correlation between each feature was examined through a correlation matrix to better understand the underlying relationships that exist within the dataset.
+
+<img src="images/Correlation_matrix.png?raw=true"/>
 
 ### 2. Data Cleaning, Processing, and Wrangling
 
