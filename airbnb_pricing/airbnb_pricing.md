@@ -1,12 +1,12 @@
 ## A statistical machine learning based pricing recommendation system for Airbnb listings in Melbourne
 
-**Project description:** This project was completed as an assessment piece for a machine learning and data science unit at the University of Sydney. For this  assignment, we were given a data set of AirBnB listings in Melbourne and were tasked with using statistical learning methods to build a pricing recommendation system. 
+**Project description:** This project was completed as an assessment piece for a machine learning and data mining unit at the University of Sydney. For this  assignment, we were given a data set of AirBnB listings in Melbourne and were tasked with using statistical learning methods to build a pricing recommendation system. 
 
 A description of the training set can be found in the appendix.
 
 ### 1. Exploratory Data Analysis
 
-The training set contains 7,000 listings and 28 independent variables as well as the target variable (price). The listing prices ranged from $13 per night to $5,000, with a mean of $152.19 and a median of $119.00. This imlpies a relatively significant right skew, which is typical for price data such as this. The distribution can be seen below.
+The training set contains 7,000 listings and 28 independent variables as well as the target variable (price). The listing prices ranged from $13 per night to $5,000, with a mean of $152.19 and a median of $119.00. This implies a relatively significant right skew, which is typical for price data such as this. This skew can also be seen in distribution below.
 
 <img src="images/Response_distribtion.png?raw=true"/>
 
@@ -50,32 +50,3 @@ Review score value	| 5634	| Float (64)
 Instant bookable	| 7000	| Object
 Cancellation policy	| 7000	| Object
 Reviews per month	| 5769	| Float (64)
-
-
-### 1. Suggest hypotheses about the causes of observed phenomena
-
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-
-```python
-if is_awesome:
-  print(true)
-
-```
-
-### 2. Assess assumptions on which statistical inference will be based
-
-```javascript
-if (isAwesome){
-  return true
-}
-```
-
-### 3. Support the selection of appropriate statistical tools and techniques
-
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
-
-### 4. Provide a basis for further data collection through surveys or experiments
-
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
