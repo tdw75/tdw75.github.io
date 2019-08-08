@@ -2,7 +2,7 @@
 
 ---
 
-### Category Name 1 
+### Data Projects 
 
 [The Effect of Company Sentiment on Stock Volatility](/stock_volatility/stock_volatility.md)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
@@ -17,7 +17,7 @@
 
 ---
 
-### Category Name 2
+### Blog Posts
 
 - [Consistency, Efficiency, and Mean Squared Error](http://example.com/)
 - [Project 2 Title](http://example.com/)
