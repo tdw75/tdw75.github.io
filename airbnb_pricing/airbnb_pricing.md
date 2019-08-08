@@ -1,6 +1,6 @@
 ## A statistical machine learning based pricing recommendation system for Airbnb listings in Melbourne
 
-**Project description:** This project was completed as an assessment piece for a machine learning and data mining unit at the University of Sydney. For this  assignment, we were given a data set of AirBnB listings in Melbourne and were tasked with using statistical learning methods to build a pricing recommendation system. The project gave me a good opportunity to work with a data set that required a fair bit of wrangling and feature engingeering and then to implement a variety of different machine learning algorithms.
+**Project description:** This project was completed as an assessment piece for a machine learning and data mining unit at the University of Sydney. For this  assignment, we were given a data set of AirBnB listings in Melbourne and were tasked with using statistical learning methods to build a pricing recommendation system. The project gave me a good opportunity to work with a data set that required a fair bit of data wrangling and feature engingeering and then to implement a variety of machine learning algorithms in Python.
 
 A description of the training set can be found in the appendix.
 
@@ -54,15 +54,26 @@ The next features that were created out of the coordinate pairs were various dis
 
 The property_type variable, contained 30 distinct classes. Only 11 of these classes were proporationally greater than 0.05%, and these 11 classes account for around 99% of all listings in the training set. Given the infrequency of the remaining 19 classes, they were grouped into an 'Other' class. This transformation simplified the categorical variable in preparation for a median encoding to be applied, as was done above for the postcodes. Three categorical variables (host_is_superhost, host_identity_verified, and instant_bookable) were found to be binary, listed as either ‘t’ or ‘f’, and thus were transformed into dummy variables. Median encoding was then applied to the remaining categorical variables (room_type and cancellation_policy), each of which had fewer than five classes. The final component of the feature engineering was to deal with the perfect multicollinearity of the review scores. PCA was again used for this task; first three principal components explained over 83% of the variance within the seven variables and were selected to ultimately be features. A final list of features can be seen in Appendix.
 
-
+<img src="images/Reviews_PCA_scree_plot.png?raw=true"/>
 
 ### 4. Modelling
+
+Although we estimated a wide range of different models, I'll only focus on the five most relevant/interesting for this problem. As mentioned in the EDA, due to the heavy right skew of the initial target variable, the log transformation of price was used as the target variable for the models that are discussed in the report. A skewed distribution is common for data concerning property/rental prices and models estimated on the log-response often perform better as a result. This was the case in our analysis. All of the models were also fit using the untransformed price variable and as a whole performed worse.
+
+The five models considered were:
+- ℓ1 regularisation (lasso regression)
+- KNN regression using principal components as regressors
+- Random forest
+- Gradient boost
+- Model stack of lasso, KNN/PCA, random forest, and gradient boost
+
+**Lasso Regression  
+
+The lasso regression was primarly fit in order to challenge the hypothesis that linear models would struggle to model the non-linear relationships in the data. After using 15-fold cross validation and testing 151 different regularisation parameter (𝛼) values on a log base 2 line from -15 to -10, the smallest 𝛼 tested was
 
 ### 5. Analysis
 
 ### 6. Appendix
-
-### 7. Limitations, Comments, and Future Work 
 
 Feature |	Non-null Values |	Data Type
 --------|-----------------|----------
@@ -121,3 +132,6 @@ Fillied_reviews_per_month | Float (64)
 Review_pc_1 | Float (64)
 Review_pc_2 | Float (64)
 Review_pc_3 | Float (64)
+
+
+### 7. Limitations, Comments, and Future Work 
