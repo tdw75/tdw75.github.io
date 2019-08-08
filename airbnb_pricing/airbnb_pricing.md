@@ -34,7 +34,7 @@ As seen in the dataset description, there were a number of variables with missin
 
 There are a number of ways to approach data imputation. As a basic level, you can just replace the missing values with some measure of central tendency (mean, median, etc.). For time series data, something like linear interpolation is popular. Then there is also the possibilty to create a model to predict the missing values, and then use these predicted values in the estimation of the target variable.
 
-In our case, there were three variables (bedrooms, bathrooms, and beds) that had a trival number of missing values (<7). Here, we just imputed the missing values with the respective median. That left ten variables with missing values - security_deposit, cleaning_fee, reviews_per_month and each of the seven review metrics - each with more than 1,000. Given the large number of missing values, filling them all with the same value is less likely to produce good predictions. Therefore, we decided to predict these values. After a bit of research, we found that KNN is a popular method for data imputation due to ease of implementation and relatively good results.
+In our case, there were three variables (bedrooms, bathrooms, and beds) that had a trival number of missing values (<7). Here, we just imputed the missing values with the respective median. That left ten variables with missing values - security_deposit, cleaning_fee, reviews_per_month and each of the seven review metrics - each with more than 1,000. Given the large number of missing values, filling them all with the same value is less likely to produce good predictions. Therefore, we decided to predict these values. After a bit of research, we found that K Nearest Neighbours (KNN) is a popular method for data imputation due to ease of implementation and relatively good results.
 
 The underlying rationale for KNN imputation is that a point value can be approximated by using the values of the points that are closest to it, based on the other features within the data set (excluding the features that are missing large portions of data themselves). This method only requires the specification of the number of nearest neighbours (a ‘k’ value), and a distance metric. In the first instance, 5-fold cross-validation was used (taking computational cost into consideration) to determine an optimal k value of 17. In determining the distance matrix, it is important to first observe the type of data that is missing. All the features missing values were numerical and so the Euclidean distance metric was used. Another important consideration was that due to the sheer volume of missing data entries, and the high dimensionality of the data, many missing values would not have enough neighbours to deliver reliable predictions. To account for this, if more than 50% of the nearest neighbours had missing values in the column of interest, the observation was left unfilled. 
 
@@ -67,18 +67,31 @@ The five models considered were:
 - Gradient boost
 - Model stack of lasso, KNN/PCA, random forest, and gradient boost
 
-**Lasso Regression  
+**Lasso Regression**  
 
 The lasso regression was primarly fit in order to challenge the hypothesis that linear models would struggle to model the non-linear relationships in the data. After using 15-fold cross validation and testing 151 different regularisation parameter (𝛼) values, logarithmically spaced, with the function *np.logspace(-15, -10, 151, base=2)*. The chart below shows the loss for the corresponding 𝛼 values:
 
 <img src="images/Lasso_lambda.png?raw=true"/>
 
+**KNN with PCA
+
+<img src="images/KNN_PCA_scree_plot.png?raw=true"/>
+
+<img src="images/Reviews_PCA_3.png?raw=true"/> <img src="images/Reviews_PCA_4.png?raw=true"/>
+
+
+**Random Forest**
+
+**Gradient Boost**
+
+**Model Stack**
+
 ### 5. Analysis
 
 ### 6. Appendix
 
-Feature |	Non-null Values |	Data Type
---------|-----------------|----------
+Variable |	Non-null Values |	Data Type
+------ --|--------- --------|----------
 Id	| 7000	| Integer (64)
 Host is super host	| 7000 |	Object
 Host total listings count	| 7000	| Integer (64)
