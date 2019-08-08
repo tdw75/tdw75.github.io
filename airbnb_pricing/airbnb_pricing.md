@@ -80,8 +80,8 @@ The lasso regression was primarly fit in order to challenge the hypothesis that 
 <img src="images/KNN_PCA_4.png"/>  
 
 <p float="left">
-  <img src="images/KNN_PCA_3.png?raw=true" width="500" />
-  <img src="images/KNN_PCA_4.png?raw=true" width="500" /> 
+  <img src="images/KNN_PCA_3.png?raw=true" width="250" />
+  <img src="images/KNN_PCA_4.png?raw=true" width="250" /> 
 </p>
 
 **Random Forest**
