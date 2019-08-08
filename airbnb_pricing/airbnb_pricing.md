@@ -50,7 +50,9 @@ Here we can see that high-priced listings are clustered around each other, most 
 
 This resulted in almost 250 unique postcodes among the listings, 235 in the test set and 234 in the train set. While postcodes are numbers, their values have no inherent meaning and instead act as categories. As such, the feature needed further processing before it could be used for modelling. One option would be to create a dummy variable for each postcode (bar one). However, this would have drastically increased the dimensionality of the dataset, and most likely have caused problems when trying to fit certain algorithms, potentially rendering some techniques computationally infeasible. Instead, I used median encoding, whereby the median of price is taken for listings in each postcode and this value then is placed into a single feature. The median was chosen over the mean so as to not be distorted by outliers. This process was simple for the train set but as the test set contained 14 postcodes not present in the train set, median prices were not available for these postcodes. The median price of the entire dataset was used instead for these observations.
 
+The next features that were created out of the coordinate pairs were various distance metrics. Five locations were selected for this. Although a purely data-driven choice of these locations would of course have been ideal, this is not always feasible. As a result, the choice of these locations drew instead upon our previous knowledge of the city, some basic logic, and the insights from the EDA. The five locations chosen were: the CBD, the MCG/Melbourne Sports Precinct, Chapel Street, St Kilda, and Fitzroy. These locations were chosen as they contain the vast majority of Melbourne’s most visited tourist locations and nightlife districts, and therefore, it is reasonable to assume that visitors to the city may be willing to pay a premium to be in close proximity to them. These assumptions were supported by the clustering of high-priced listings around these areas as seen on the heat map. The distance metric chosen was the Manhattan distance, named after the city’s grid-like streets. This was considered more appropriate than other options such as the Euclidean or Mahalanobis distances as Melbourne’s road system is also designed on a grid. This resulted in five features, that were now much more useful that mere coordinate values. However, the five features were (as expected) found to be highly correlated, all with 𝜌>0.9. To work around this, principal components analysis (PCA) was used. The first principal component captured more than 97.5% and this became the feature for the final dataset, replacing the distances from the five individual locations; the remaining principal components were not considered.
 
+The property_type variable, contained 30 distinct classes. Only 11 of these classes were proporationally greater than 0.05%, and these 11 classes account for around 99% of all listings in the training set. Given the infrequency of the remaining 19 classes, they were grouped into an 'Other' class. This transformation simplified the categorical variable in preparation for a median encoding to be applied, as was done above for the postcodes. Three categorical variables (host_is_superhost, host_identity_verified, and instant_bookable) were found to be binary, listed as either ‘t’ or ‘f’, and thus were transformed into dummy variables. Median encoding was then applied to the remaining categorical variables (room_type and cancellation_policy), each of which had fewer than five classes. The final component of the feature engineering was to deal with the perfect multicollinearity of the review scores. PCA was again used for this task; first three principal components explained over 83% of the variance within the seven variables and were selected to ultimately be features. A final list of features can be seen in Appendix.
 
 
 
@@ -92,3 +94,30 @@ Review score value	| 5634	| Float (64)
 Instant bookable	| 7000	| Object
 Cancellation policy	| 7000	| Object
 Reviews per month	| 5769	| Float (64)
+
+
+Feature |	Data Type
+--------|----------
+Host_is_superhost | Integer (64)
+Host_total_listings_count | Integer (64)
+Host_identity_verified | Integer (64)
+Accommodates | Integer (64)
+Filled_bathrooms | Float (64)
+Filled_bedrooms | Float (64)
+Filled_beds | Float (64)
+Filled_security_deposits | Float (64)
+Filled_cleaning_fee | Float (64)
+Extra_people | Integer (64)
+Minimum_nights | Integer (64)
+Maximum_nights | Integer (64)
+Number_of_reviews | Integer (64)
+Instant_bookable | Integer (64)
+Property_feature | Float (64)
+Postcode_feature | Float (64)
+Distance_feature | Float (64)
+Room_feature | Float (64)
+Cancellation_feature | Float (64)
+Fillied_reviews_per_month | Float (64)
+Review_pc_1 | Float (64)
+Review_pc_2 | Float (64)
+Review_pc_3 | Float (64)
