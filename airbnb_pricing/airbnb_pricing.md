@@ -69,7 +69,9 @@ The five models considered were:
 
 **Lasso Regression  
 
-The lasso regression was primarly fit in order to challenge the hypothesis that linear models would struggle to model the non-linear relationships in the data. After using 15-fold cross validation and testing 151 different regularisation parameter (𝛼) values on a log base 2 line from -15 to -10, the smallest 𝛼 tested was
+The lasso regression was primarly fit in order to challenge the hypothesis that linear models would struggle to model the non-linear relationships in the data. After using 15-fold cross validation and testing 151 different regularisation parameter (𝛼) values, logarithmically spaced, with the function *np.logspace(-15, -10, 151, base=2)*. The chart below shows the loss for the corresponding 𝛼 values:
+
+<img src="images/Lasso_lambda.png?raw=true"/>
 
 ### 5. Analysis
 
