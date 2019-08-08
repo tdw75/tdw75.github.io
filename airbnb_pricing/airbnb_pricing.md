@@ -106,8 +106,8 @@ A random forest is an aggregation of a large number of decision trees where each
 
 Each of the above hyperparameters was tested at different values when estimating the model. While hyperparameter tuning can of course always be more granular, the running time increases exponentially with added combinations and eventually becomes infeasible. The optimal hyperparameter values and RMSE were as follows:
 
-Maximum Features | Minimum Samples | No. of Estimators | RMSE
-:---------------:|:---------------:|:-----------------:|:---:|
+Max. Features | Min. Samples | No. of Estimators | RMSE
+:------------:|:------------:|:-----------------:|:---:|
 11 | 1 | 200 | 129.46
 
 **Gradient Boost**
@@ -119,6 +119,12 @@ Learning Rate | No. of Estimators | Max. Tree Depth | Sub-sample Ratio | RMSE
 0.05 | 750 | 3 | 1.0 | 132.82
 
 **Model Stack**
+
+The final model is a stack of the previous four and connected with a linear regression meta model that places a weight on the predictions of each. Due to the computational cost, 5-fold cross validation is used here rather than 15-fold as before. The traditional thinking with model stacks is to combine a number of weak learners to create a strong learner. However, in this case, rather than combining every single possible model, the four were carefully selected based on their individual strengths and weaknesses to combine the flexibility non-linear models with linear models and regularisation methods. This was an attempt to avoid overfitting, as combining lots of learners that all predict in a similar way will lead to collinearity between the predictors in the meta models, which could (at least partially) contribute to overfitting. Thus, there is a focus  on including a range of models that each approach the problem in a slightly different way. The combination of linear and non-linear learners resulted in the best overall performance.
+
+Constituent Models | Meta Model | RMSE
+:-----------------:|:----------:|:---:|
+Lasso, KNN with PCA, Random Forest, XGBoost | Linear regression | 129.27
 
 ### 5. Analysis
 
