@@ -1,6 +1,6 @@
 ## A statistical machine learning based pricing recommendation system for Airbnb listings in Melbourne
 
-**Project description:** This project was completed as an assessment piece for a machine learning and data mining unit at the University of Sydney. For this  assignment, we were given a data set of AirBnB listings in Melbourne and were tasked with using statistical learning methods to build a pricing recommendation system. 
+**Project description:** This project was completed as an assessment piece for a machine learning and data mining unit at the University of Sydney. For this  assignment, we were given a data set of AirBnB listings in Melbourne and were tasked with using statistical learning methods to build a pricing recommendation system. The project gave me a good opportunity to work with a data set that required a fair bit of wrangling and feature engingeering and then to implement a variety of different machine learning algorithms.
 
 A description of the training set can be found in the appendix.
 
@@ -30,7 +30,13 @@ Based off the insights gained from the EDA, it was hypothesised that due to the 
 
 ### 2. Data Cleaning, Processing, and Wrangling
 
-### 3. Feature Engineering
+As seen in the dataset description, there were a number of variables with missing values. To remove the problem of missing data, observations with missing values could obviously be merely removed from the dataset. However, unless the observation is so sparsely populated that it doesn't offer much information, it's generally not ideal to delete data. Instead, the missung values could be imputed with another value.
+
+There are a number of ways to approach data imputation. As a basic level, you can just replace the missing values with some measure of central tendency (mean, median, etc.). For time series data, something like linear interpolation is popular. Then there is also the possibilty to create a model to predict the missing values, and then use these predicted values in the estimation of the target variable.
+
+In our case, there were three variables (bedrooms, bathrooms, and beds) that had a trival number of missing values (<7). Here, we just imputed the missing values with the respective median. That left ten variables with missing values - security_deposit, cleaning_fee, reviews_per_month and each of the seven review metrics - each with more than 1,000 
+
+### 3. Feature Engineering  
 
 ### 4. Modelling
 
