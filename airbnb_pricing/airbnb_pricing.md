@@ -56,7 +56,7 @@ The property_type variable, contained 30 distinct classes. Only 11 of these clas
 
 <img src="images/Reviews_PCA_scree_plot.png?raw=true"/>
 
-### 4. Modelling
+### 4. Modelling 
 
 Although we estimated a wide range of different models, I'll only focus on the five most relevant/interesting for this problem. As mentioned in the EDA, due to the heavy right skew of the initial target variable, the log transformation of price was used as the target variable for the models that are discussed in the report. A skewed distribution is common for data concerning property/rental prices and models estimated on the log-response often perform better as a result. This was the case in our analysis. All of the models were also fit using the untransformed price variable and as a whole performed worse.
 
@@ -69,19 +69,33 @@ The five models considered were:
 
 **Lasso Regression**  
 
-The lasso regression was primarly fit in order to challenge the hypothesis that linear models would struggle to model the non-linear relationships in the data. After using 15-fold cross validation and testing 151 different regularisation parameter (𝛼) values, logarithmically spaced, with the function *np.logspace(-15, -10, 151, base=2)*. The chart below shows the loss for the corresponding 𝛼 values:
+The lasso regression was primarly fit in order to challenge the hypothesis that linear models would struggle to model the non-linear relationships in the data. After using 15-fold cross validation (CV) and testing 151 different regularisation parameter (𝛼) values, logarithmically spaced, with the function *np.logspace(-15, -10, 151, base=2)*. The chart below shows the loss for the corresponding 𝛼 values:
 
-<img src="images/Lasso_lambda.png?raw=true"/>
+<img src="images/Lasso_lambda.png?raw=true"/> 
 
-At the optimal 𝛼 of 1.0627<sup>-4</sup>
+At the optimal 𝛼 of 1.0627<sup>-4</sup>, the final CV RMSE was higher than that of the other models tested. This supports the hypothesis that linear models would struggle to estimate the non-linearity in the data.
+
+Optimal 𝛼 | RMSE
+----------|-----
+1.0627<sup>-4</sup> | 144.26
 
 **KNN with PCA**
 
+Non-parametric methods are generally quite flexible and therefore often model non-linearity quite well. However, they suffer from the "curse of dimensionality" in higher dimensions, whereby the amount of data needed for accurate estimation quickly becomes unrealistic. With 23 features, this issue is definitely relevant for this dataset. In order to overcome this, PCA was performed on the whole set of features; this included the highly correlated features that had been reduced before use in other models, but not including the principal components that resulted from that. From the scree plot below, we can see two noticeable ‘elbows’, after which the following components fail to explain much variance.
+
 <img src="images/KNN_PCA_scree_plot.png?raw=true"/>
+
+Using this rule of thumb, a KNN regression was fit on both the first 3 and first 4 componenents. After cross validation, we can see the optimal number of neighbours for each: 
 
 <img src="images/KNN_PCA_3.png?raw=true"/>
 <img src="images/KNN_PCA_4.png?raw=true"/> 
 
+The optimal points were 𝐾=9 and 𝐾=7 for the model fit on the first 3 and 4 components respectively. This model proved to be an improvement upon the lasso regression, with the final results as below:
+
+Principal Components | Optimal K-neighbours | RMSE
+---------------------|----------------------|-----
+3 | 9 | 135.38
+4 | 7 | 138.20
 
 **Random Forest**
 
