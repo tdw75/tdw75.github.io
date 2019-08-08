@@ -38,6 +38,14 @@ In our case, there were three variables (bedrooms, bathrooms, and beds) that had
 
 ### 3. Feature Engineering  
 
+The first candidates for feature engineering were the latitude and longitude columns. As seen in the EDA, coordinate values are naturally not of much use in the modelling process as the numbers themselves. But they do contain information that could be extracted for a range of useful predictors.
+
+The first feature that was extracted from the latitude and longitude coordinates had to do with the area in the city, in which the listings are located. In the heatmap of listings in the EDA, it could easily be seen that high-priced listings were clustered around each other, most notably in the CBD area, the inner north suburbs such as Fitzroy and Carlton, and the inner eastern suburbs such as Prahran and St Kilda.
+
+<img src="images/Zoomed_map.png?raw=true"/>
+
+
+
 ### 4. Modelling
 
 ### 5. Analysis
