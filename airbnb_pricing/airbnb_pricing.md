@@ -108,9 +108,15 @@ Each of the above hyperparameters was tested at different values when estimating
 
 Maximum Features | Minimum Samples | No. of Estimators | RMSE
 :---------------:|:---------------:|:-----------------:|:---:|
-11 | 1 | 200 | 129.4553
+11 | 1 | 200 | 129.46
 
 **Gradient Boost**
+
+Another tree-based method, gradient boosting, is also particularly well suited to non-linearity. it is also a powerful model that regularly features in winning Kaggle submissions. Gradient boosting is an iterative algorithm, where each successive model/tree effectively tries to fanotherix the errors of the previous one. More specifically, we used XGBoost for the added benefit of regularisation, again in an attempt to avoid overfitting. Again, there are multiple hyperparameters. Many are the same as in the random forest, but one in particular is very different. That is the learning rate, which controls the size of the steps in the gradient descent optimisation algorithm. A higher learning rate means faster optimisation but risks overshooting the optimal point and a lower learning rate is more thorough but runs the risk of being too slow to properly train the model. The resulting best parameters and RMSE score achieved utilising these parameter values are shown below:  
+
+Learning Rate | No. of Estimators | Max. Tree Depth | Sub-sample Ratio | RMSE
+:------------:|:-----------------:|:---------------:|:----------------:|:---:|
+0.05 | 750 | 3 | 1.0 | 132.82
 
 **Model Stack**
 
