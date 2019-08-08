@@ -4,6 +4,8 @@
 
 A description of the training set can be found in the appendix.
 
+*Note: I haven't yet got around to uploading all of the code for this. I hope to have it all up soon*
+
 ### 1. Exploratory Data Analysis
 
 The training set contains 7,000 listings and 28 independent variables as well as the target variable (price). The listing prices ranged from $13 per night to $5,000, with a mean of $152.19 and a median of $119.00. This implies a relatively significant right skew, which can be seen in distribution below.
