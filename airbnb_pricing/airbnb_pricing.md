@@ -30,7 +30,7 @@ Based off the insights gained from the EDA, it was hypothesised that due to the 
 
 ### 2. Data Cleaning, Processing, and Wrangling
 
-As seen in the dataset description, there were a number of variables with missing values. To remove the problem of missing data, observations with missing values could obviously be merely removed from the dataset. However, unless the observation is so sparsely populated that it doesn't offer much information, it's generally not ideal to delete data. Instead, the missung values could be imputed with another value.
+As seen in the dataset description, there were a number of variables with missing values. To remove the problem of missing data, observations with missing values could obviously be merely removed from the dataset. However, unless the observation is so sparsely populated that it doesn't offer much information, it's generally not ideal to delete data. Instead, the missing values could be imputed with another value.
 
 There are a number of ways to approach data imputation. As a basic level, you can just replace the missing values with some measure of central tendency (mean, median, etc.). For time series data, something like linear interpolation is popular. Then there is also the possibilty to create a model to predict the missing values, and then use these predicted values in the estimation of the target variable.
 
@@ -76,12 +76,12 @@ The lasso regression was primarly fit in order to challenge the hypothesis that 
 At the optimal 𝛼 of 1.0627<sup>-4</sup>, the final CV RMSE was higher than that of the other models tested. This supports the hypothesis that linear models would struggle to estimate the non-linearity in the data.
 
 Optimal 𝛼 | RMSE
-----------|-----
+:--------:|:---:
 1.0627<sup>-4</sup> | 144.26
 
 **KNN with PCA**
 
-Non-parametric methods are generally quite flexible and therefore often model non-linearity quite well. However, they suffer from the "curse of dimensionality" in higher dimensions, whereby the amount of data needed for accurate estimation quickly becomes unrealistic. With 23 features, this issue is definitely relevant for this dataset. In order to overcome this, PCA was performed on the whole set of features; this included the highly correlated features that had been reduced before use in other models, but not including the principal components that resulted from that. From the scree plot below, we can see two noticeable ‘elbows’, after which the following components fail to explain much variance.
+Non-parametric methods are generally quite flexible and can therefore often model non-linearity quite well. However, they do have drawbacks. Namely, they suffer from the "curse of dimensionality", whereby the amount of data needed for accurate estimation quickly becomes unrealistic in higher dimensions. With 23 features, this issue is definitely relevant for this dataset. In order to overcome this, PCA was performed on the whole set of features; this included the highly correlated features that had been reduced before use in other models, but not including the principal components that resulted from that. From the scree plot below, we can see two noticeable ‘elbows’, after which the following components fail to explain much variance.
 
 <img src="images/KNN_PCA_scree_plot.png?raw=true"/>
 
@@ -93,11 +93,22 @@ Using this rule of thumb, a KNN regression was fit on both the first 3 and first
 The optimal points were 𝐾=9 and 𝐾=7 for the model fit on the first 3 and 4 components respectively. This model proved to be an improvement upon the lasso regression, with the final results as below:
 
 Principal Components | Optimal K-neighbours | RMSE
----------------------|----------------------|-----
+:-------------------:|:--------------------:|:---:
 3 | 9 | 135.38
 4 | 7 | 138.20
 
 **Random Forest**
+
+A random forest is an aggregation of a large number of decision trees where each tree is fit on a different bootstrapped data set with a random subset of features. This works to decorrelate the individual trees and reduce the risk of overfitting.  As a non-linear model, it is also well suited to this data set. There are a few different hyperparameters to tune when fitting a random forest:
+- The number of estimators (i.e. no. of trees in the forest)
+- The minimum number of samples allowed in leaf (end) nodes
+- The maximum number of features used in each tree
+
+Each of the above hyperparameters was tested at different values when estimating the model. While hyperparameter tuning can of course always be more granular, the running time increases exponentially with added combinations and eventually becomes infeasible. The optimal hyperparameter values and RMSE were as follows:
+
+Maximum Features | Minimum Samples | No. of Estimators | RMSE
+:---------------:|:---------------:|:-----------------:|:---:|
+11 | 1 | 200 | 129.4553
 
 **Gradient Boost**
 
@@ -108,7 +119,7 @@ Principal Components | Optimal K-neighbours | RMSE
 ### 6. Appendix
 
 Variable |	Non-null Values |	Data Type
------- --|--------- --------|----------
+:-------:|:----------------:|:--------:
 Id	| 7000	| Integer (64)
 Host is super host	| 7000 |	Object
 Host total listings count	| 7000	| Integer (64)
@@ -140,7 +151,7 @@ Reviews per month	| 5769	| Float (64)
 
 
 Feature |	Data Type
---------|----------
+:------:|:--------:
 Host_is_superhost | Integer (64)
 Host_total_listings_count | Integer (64)
 Host_identity_verified | Integer (64)
