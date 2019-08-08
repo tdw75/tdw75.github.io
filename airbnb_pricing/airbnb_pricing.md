@@ -119,7 +119,7 @@ Maximum Features | Minimum Samples | No. of Estimators | RMSE
 ### 6. Appendix
 
 Variable |	Non-null Values |	Data Type
-:-------:|:----------------:|:--------:
+---------|:----------------:|:--------:
 Id	| 7000	| Integer (64)
 Host is super host	| 7000 |	Object
 Host total listings count	| 7000	| Integer (64)
@@ -151,7 +151,7 @@ Reviews per month	| 5769	| Float (64)
 
 
 Feature |	Data Type
-:------:|:--------:
+--------|:--------:
 Host_is_superhost | Integer (64)
 Host_total_listings_count | Integer (64)
 Host_identity_verified | Integer (64)
