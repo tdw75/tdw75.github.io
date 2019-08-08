@@ -73,16 +73,15 @@ The lasso regression was primarly fit in order to challenge the hypothesis that 
 
 <img src="images/Lasso_lambda.png?raw=true"/>
 
+At the optimal 𝛼 of 1.0627<sup>-4</sup>
+
 **KNN with PCA**
 
 <img src="images/KNN_PCA_scree_plot.png?raw=true"/>
 
-<img src="images/KNN_PCA_4.png"/>  
+<img src="images/KNN_PCA_3.png?raw=true"/>
+<img src="images/KNN_PCA_4.png?raw=true"/> 
 
-<p float="left">
-  <img src="images/KNN_PCA_3.png?raw=true" width="250" />
-  <img src="images/KNN_PCA_4.png?raw=true" width="250" /> 
-</p>
 
 **Random Forest**
 
