@@ -3,7 +3,8 @@
 1. [Data Projects](#projects)
 2. [Blog Posts](#posts)
 3. [Education](#education)
-3. [Experience](#experience)
+4. [Experience](#experience)
+5. [Skills](#skills)
 
 ---
 
@@ -15,14 +16,16 @@
 
 ---
 
-## Blog Posts <a name="posts"></a>
+<a name="posts"></a>
+## Blog Posts 
 
 - [Consistency, Efficiency, and Mean Squared Error](/consistency/consistency.md)
 - [Spurious Regression](/spurious_regression/spurious_regression.md)
 
 ---
 
-## Education <a name="educations"></a>
+<a name="educations"></a>
+## Education 
 
 ### University of Sydney \| Mar 2015 - Jun 2019  
 
@@ -39,7 +42,8 @@
 
 ---
 
-## Experience <a name="experience"></a>
+<a name="experience"></a>
+## Experience 
 
 ### Nous Group  
 
@@ -68,6 +72,11 @@ Paris, France | Jun 2017 - Aug 2017
 Siem Reap, Cambodia |  Dec 2016 - Mar 2017  
 *Project Team Member*  
 Siem Reap, Cambodia |  Jun 2016 - Jul 2016
+
+---
+
+<a name="skills"></a>
+## Skills 
 
 ---
 <p style="font-size:11px">Page template forked from <a href="https://github.com/evanca/quick-portfolio">evanca</a></p>
