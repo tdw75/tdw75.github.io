@@ -81,7 +81,7 @@ Siem Reap, Cambodia |  Jun 2016 - Jul 2016
 
 ### Statistics and Econometrics
 - Regression
- - Classic linear regression, generalised linear models, regularisation methods, nonlinear regression
+  - Classic linear regression, generalised linear models, regularisation methods, nonlinear regression
 - Financial econometrics
   - Linear time series analysis (ARIMAX), volatility modelling (ARCH/GARCH), high frequency and continuous time models, option pricing, value-at-Risk
 - Simulation and Monte Carlo methods
@@ -89,22 +89,22 @@ Siem Reap, Cambodia |  Jun 2016 - Jul 2016
 
 ### Operations Research
 - Mathematical optimisation
-    - Linear programming, integer programming, nonlinear programming, network optimisation, dynamic programming
+  - Linear programming, integer programming, nonlinear programming, network optimisation, dynamic programming
 - Decision making
-    - Decision trees, Monte Carlo simulations, game theory
+  - Decision trees, Monte Carlo simulations, game theory
 
 ### Machine Learning
 - Classification
-    - K nearest neighbours, logistic regression, naïve Bayes classifier, support vector machines, Gaussian discriminant analysis, decision trees
+  - K nearest neighbours, logistic regression, naïve Bayes classifier, support vector machines, Gaussian discriminant analysis, decision trees
 - Ensemble methods
-    - Random forests, bagging, boosting, model stacking
+  - Random forests, bagging, boosting, model stacking
 - Unsupervised Learning
-    - Principal componnents analysis, clustering (K-means, etc.)
+  - Principal componnents analysis, clustering (K-means, etc.)
 - Deep neural networks
 
 ### Software
 - Python
-    - NumPy, pandas, SciPy, matplotlib, seaborn, GeoPy, statsmodels, sklearn, XGBoost, LightGBM, nltk, Keras, arch, Gurobi
+  - NumPy, pandas, SciPy, matplotlib, seaborn, GeoPy, statsmodels, sklearn, XGBoost, LightGBM, nltk, Keras, arch, Gurobi
 - SQL
 - R
 - Microsoft Office
