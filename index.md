@@ -35,20 +35,20 @@
 
 ### Experience
 
-**Nous Group**
+**Nous Group**  
 Management Consulting Intern \| Sydney, Australia | Feb 2019 - May 2019
 
-**Mastercard**
+**Mastercard**  
 Summer Analyst \| Sydney, Australia | Dec 2018 - Feb 2019
 
-**180 Degrees Consulting**
-Pro Bono Strategy Consultant \| Sydney, Australia | Aug 2018 - Nov 2018
+**180 Degrees Consulting**  
+Pro Bono Strategy Consultant \| Sydney, Australia | Aug 2018 - Nov 2018 
 Pro Bono Strategy Consultant \| Berlin, Germany | Nov 2017 - Apr 2018
 
-**Organisation for Economic Cooperation and Development**
+**Organisation for Economic Cooperation and Development**  
 Statistics Intern \| Paris, France | Jun 2017 - Aug 2017
 
-**Project Everest Ventures**
+**Project Everest Ventures**  
 Project Team Leader \| Siem Reap, Cambodia | 
 
 ---
