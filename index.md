@@ -94,16 +94,20 @@ Siem Reap, Cambodia |  Jun 2016 - Jul 2016
 
 ### Machine Learning
 - Classification
-  - K nearest neighbours, logistic regression, naïve Bayes classifier, support vector machines, Gaussian discriminant analysis
+  - K nearest neighbours, logistic regression, naïve Bayes classifier, support vector machines, Gaussian discriminant analysis, decision trees
 - Ensemble methods
-  - Decision trees, random forests, bagging, boosting, model stacking
+  - Random forests, bagging, boosting, model stacking
 - Unsupervised Learning
   - Principal componnents analysis, clustering (K-means, etc.)
 - Deep neural networks
 
 ### Software
-- Python (
-
+- Python
+  - NumPy, pandas, SciPy, matplotlib, seaborn, GeoPy, statsmodels, sklearn, XGBoost, LightGBM, nltk, Keras, arch, Gurobi
+- R
+- SQL
+- Microsoft Office
+  - Excel (@Risk, Decision Tree), Word, PowerPoint (Thinkcell)
 
 ### Language
 - English 
