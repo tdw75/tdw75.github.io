@@ -78,6 +78,62 @@ Siem Reap, Cambodia |  Jun 2016 - Jul 2016
 <a name="skills"></a>
 ## Skills 
 
+### Statistics and Economatrics
+- Regression
+  - Classic linear regression
+  - Generalised linear models (logit, probit, robit, etc.)
+  - Regularisation (ridge, lasso, elastic net)
+  - Non-linear regression (kernal regression, splines, polynomials)
+- Financial cconometrics
+  - Linear time series analysis (ARIMA, ARIMAX, etc.)
+  - Volatility modelling (ARCH/GARCH)
+  - High frequency and continuous time models
+  - Option pricing
+  - Value-at-Risk
+- Simulation and Monte Carlo methods
+  - Bootstrap
+  - Monte Carlo integration
+  - Monte Carlo hypothesis tests
+
+### Operations Research
+- Mathematical optimisation
+  - Linear programming
+  - Integer programming
+  - Nonlinear programming
+  - Network optimisation
+  - Dynamic programming
+- Decision making
+  - Decision trees
+  - Game theory
+  - Monte Carlo simulations
+
+### Machine Learning
+- Classification
+  - K nearest neighbours
+  - Logistic regression
+  - Naïve Bayes classifier
+  - Support vector machines
+  - Gaussian discriminant analysis
+- Ensemble methods
+  - Decision trees
+  - Random forests
+  - Bagging
+  - Boosting
+  - Model stacking
+- Unsupervised Learning
+  - Principal componnents analysis
+  - Clustering (K-means, etc.)
+- Deep neural networks
+
+### Software
+- Python
+  - 
+
+
+### Language
+- English 
+- German
+
 ---
 <p style="font-size:11px">Page template forked from <a href="https://github.com/evanca/quick-portfolio">evanca</a></p>
 <!-- Remove above link if you don't want to attibute -->
