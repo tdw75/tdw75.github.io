@@ -80,10 +80,7 @@ Siem Reap, Cambodia |  Jun 2016 - Jul 2016
 
 ### Statistics and Economatrics
 - Regression
-  - Classic linear regression
-  - Generalised linear models (logit, probit, robit, etc.)
-  - Regularisation (ridge, lasso, elastic net)
-  - Non-linear regression (kernal regression, splines, polynomials)
+  - Classic linear regression, generalised linear models, regularisation methods, non-linear regression
 - Financial cconometrics
   - Linear time series analysis (ARIMA, ARIMAX, etc.)
   - Volatility modelling (ARCH/GARCH)
@@ -126,8 +123,7 @@ Siem Reap, Cambodia |  Jun 2016 - Jul 2016
 - Deep neural networks
 
 ### Software
-- Python
-  - 
+- Python (
 
 
 ### Language
