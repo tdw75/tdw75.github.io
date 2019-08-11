@@ -122,7 +122,7 @@ Learning Rate | No. of Estimators | Max. Tree Depth | Sub-sample Ratio | RMSE
 
 **Model Stack**
 
-The final model is a stack of the previous four and connected with a linear regression meta model that places a weight on the predictions of each. Due to the computational cost, 5-fold cross validation is used here rather than 15-fold as before. The traditional thinking with model stacks is to combine a number of weak learners to create a strong learner. However, in this case, rather than combining every single possible model, the four were carefully selected based on their individual strengths and weaknesses to combine the flexibility of non-linear models with benefits of linear models and regularisation methods. This was an attempt to avoid overfitting, as combining learners that all predict in a similar way will lead to collinearity between the predictors in the meta models and could (at least partially) contribute to overfitting. Thus, there is a focus  on including a range of models that each approach the problem in a slightly different way. This combination of linear and non-linear learners resulted in the best overall performance.
+The final model is a stack of the previous four and connected with a linear regression meta model that places a weight on the predictions of each. Due to the computational cost, 5-fold cross validation is used here rather than 15-fold as before. The traditional thinking with model stacks is to combine a number of weak learners to create a strong learner. In this case, rather than combining every single possible model, the four constituent models were carefully selected based on their individual strengths and weaknesses to combine the flexibility of non-linear models with benefits of linear models and regularisation methods. This was an attempt to avoid overfitting, as combining learners that all predict in a similar way will lead to collinearity between the predictors in the meta model and could (at least partially) contribute to overfitting. Hence the focus  on including a range of models that each approach the problem in a slightly different way. This combination of linear and non-linear learners resulted in the best overall performance.
 
 Constituent Models | Meta Model | RMSE
 :-----------------:|:----------:|:---:|
@@ -130,15 +130,38 @@ Lasso, KNN with PCA, Random Forest, XGBoost | Linear regression | 129.27
 
 ### 5. Analysis
 
+Below is the final performance of each of the five models:
+
 Model |	Train CV RMSE |	Test RMSE
 ------|:-------------:|:--------:
-Lasso	| 144.26	| XXX.XX
-KNN with PCA	| 135.38 |	XXX.XX
-Random Forest	| 129.46	| XXX.XX
-XGBoost	| 132.82	| XXX.XX
-Model Stack	| 129.27	| XXX.XX
+Lasso	| 144.26	| 189.90
+KNN with PCA	| 135.38 |	142.30
+Random Forest	| 129.46	| 121.46
+XGBoost	| 132.82	| 111.26
+Model Stack	| 129.27	| 115.17
+
+We can see here that the model stack performed best. Unfortunately, models such as this become difficult to interpret. However, what we can see is the coefficient values in the meta model of the stack.
+
+One thing we can see, however, is the variable importance
+
+Model |	Coefficient 
+------|:-----------:
+Lasso	| -0.01	
+KNN with PCA	| 0.03
+Random Forest	| 0.47	
+XGBoost	| 0.54	
+
+There are a few interesting points here. Firstly, the lasso has a negative coefficient that is very close to zero. This implies that the predictions from the lasso model were actually counted as a negative in the model stack. At first glance you could assume that the lasso is not that useful and could just be taken out. However, a model stack without the lasso gave an RMSE of 129.96, worse than before. This means that the negative coefficient still provides valuable information to the final stack through its joint interactions with the other leaners.  
+
+
+Another interesting aspect to look at is the variable importance as part of the random forest. When bui
+also important to let listers know what apartment features can increase the price. This can let them adjust their strategies accordingly
 
 ### 6. Limitations, Comments, and Future Work 
+
+- cross validation
+- missing variables
+- quality of the data imputation
 
 ### 7. Appendix
 
