@@ -27,8 +27,7 @@
 <a name="educations"></a>
 ## Education 
 
-### University of Sydney  
-Mar 2015 - Jun 2019  
+### University of Sydney  \| Mar 2015 - Jun 2019  
 
 *Bachelor of Arts with a double major in Econometrics and Germanic Studies*  
 *Bachelor of Commerce with a major in Business Analytics*
