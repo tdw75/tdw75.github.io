@@ -105,8 +105,8 @@ Siem Reap, Cambodia |  Jun 2016 - Jul 2016
 ### Software
 - Python
   - NumPy, pandas, SciPy, matplotlib, seaborn, GeoPy, statsmodels, sklearn, XGBoost, LightGBM, nltk, Keras, arch, Gurobi
-- R
 - SQL
+- R
 - Microsoft Office
   - Excel (@Risk, Decision Tree), Word, PowerPoint (Thinkcell)
 
