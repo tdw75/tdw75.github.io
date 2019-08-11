@@ -130,7 +130,9 @@ Lasso, KNN with PCA, Random Forest, XGBoost | Linear regression | 129.27
 
 ### 5. Analysis
 
-### 6. Appendix
+### 6. Limitations, Comments, and Future Work 
+
+### 7. Appendix
 
 Variable |	Non-null Values |	Data Type
 ---------|:----------------:|:--------:
@@ -191,4 +193,4 @@ Review_pc_2 | Float (64)
 Review_pc_3 | Float (64)
 
 
-### 7. Limitations, Comments, and Future Work 
+
