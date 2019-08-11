@@ -40,12 +40,12 @@
 *Management Consulting Intern*   
 Sydney, Australia | Feb 2019 - May 2019
 
-**Mastercard**  
+#### Mastercard  
 
 *Summer Analyst*  
 Sydney, Australia | Dec 2018 - Feb 2019
 
-**180 Degrees Consulting**  
+##### 180 Degrees Consulting  
 
 *Pro Bono Strategy Consultant*  
 Sydney, Australia | Aug 2018 - Nov 2018  
