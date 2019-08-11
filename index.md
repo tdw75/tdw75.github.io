@@ -36,20 +36,27 @@
 ### Experience
 
 **Nous Group**  
-Management Consulting Intern \| Sydney, Australia | Feb 2019 - May 2019
+*Management Consulting Intern*   
+Sydney, Australia | Feb 2019 - May 2019
 
 **Mastercard**  
-Summer Analyst \| Sydney, Australia | Dec 2018 - Feb 2019
+*Summer Analyst*  
+Sydney, Australia | Dec 2018 - Feb 2019
 
 **180 Degrees Consulting**  
-Pro Bono Strategy Consultant \| Sydney, Australia | Aug 2018 - Nov 2018 
-Pro Bono Strategy Consultant \| Berlin, Germany | Nov 2017 - Apr 2018
+*Pro Bono Strategy Consultant*  
+Sydney, Australia | Aug 2018 - Nov 2018  
+Berlin, Germany | Nov 2017 - Apr 2018 
 
 **Organisation for Economic Cooperation and Development**  
-Statistics Intern \| Paris, France | Jun 2017 - Aug 2017
+*Statistics Intern*  
+Paris, France | Jun 2017 - Aug 2017
 
 **Project Everest Ventures**  
-Project Team Leader \| Siem Reap, Cambodia | 
+*Project Team Leader*  
+Siem Reap, Cambodia |  Dec 2016 - Mar 2017  
+*Project Team Member*  
+Siem Reap, Cambodia |  Jun 2016 - Jul 2016
 
 ---
 <p style="font-size:11px">Page template forked from <a href="https://github.com/evanca/quick-portfolio">evanca</a></p>
