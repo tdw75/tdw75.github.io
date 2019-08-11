@@ -7,7 +7,8 @@
 
 ---
 
-## Data Projects <a name="projects"></a>
+<a name="projects"></a>
+## Data Projects 
 
 - [The Effect of Company Sentiment on Stock Volatility](/stock_volatility/stock_volatility.md)
 - [Building a Pricing Recommendation System for AirBnB Listings](/airbnb_pricing/airbnb_pricing.md)
