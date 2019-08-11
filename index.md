@@ -81,7 +81,7 @@ Siem Reap, Cambodia |  Jun 2016 - Jul 2016
 
 ### Statistics and Econometrics
 - Regression
-  - Classic linear regression, generalised linear models, regularisation methods, non-linear regression
+  - Classic linear regression, generalised linear models, regularisation methods, nonlinear regression
 - Financial econometrics
   - Linear time series analysis (ARIMAX), volatility modelling (ARCH/GARCH), high frequency and continuous time models, option pricing, value-at-Risk
 - Simulation and Monte Carlo methods
