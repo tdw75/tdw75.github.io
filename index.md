@@ -5,15 +5,7 @@
 ### Data Projects 
 
 [The Effect of Company Sentiment on Stock Volatility](/stock_volatility/stock_volatility.md)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
-
----
 [Building a Pricing Recommendation System for AirBnB Listings](/airbnb_pricing/airbnb_pricing.md)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
-
----
-[Project 3 Title](/pdf/sample_presentation.pdf)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
 
@@ -21,13 +13,10 @@
 
 - [Consistency, Efficiency, and Mean Squared Error](/consistency/consistency.md)
 - [Spurious Regression](/spurious_regression/spurious_regression.md)
-- [Project 3 Title](http://example.com/)
-- [Project 4 Title](http://example.com/)
-- [Project 5 Title](http://example.com/)
 
 ---
 
-
+### Education
 
 
 ---
