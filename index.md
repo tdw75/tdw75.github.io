@@ -35,7 +35,7 @@
 
 ## Experience
 
-**Nous Group**  
+### Nous Group  
 
 *Management Consulting Intern*   
 Sydney, Australia | Feb 2019 - May 2019
