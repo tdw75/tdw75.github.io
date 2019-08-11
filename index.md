@@ -78,48 +78,27 @@ Siem Reap, Cambodia |  Jun 2016 - Jul 2016
 <a name="skills"></a>
 ## Skills 
 
-### Statistics and Economatrics
+### Statistics and Econometrics
 - Regression
   - Classic linear regression, generalised linear models, regularisation methods, non-linear regression
-- Financial cconometrics
-  - Linear time series analysis (ARIMA, ARIMAX, etc.)
-  - Volatility modelling (ARCH/GARCH)
-  - High frequency and continuous time models
-  - Option pricing
-  - Value-at-Risk
+- Financial econometrics
+  - Linear time series analysis (ARIMAX), volatility modelling (ARCH/GARCH), high frequency and continuous time models, option pricing, value-at-Risk
 - Simulation and Monte Carlo methods
-  - Bootstrap
-  - Monte Carlo integration
-  - Monte Carlo hypothesis tests
+  - Bootstrap, Monte Carlo integration, Monte Carlo hypothesis tests
 
 ### Operations Research
 - Mathematical optimisation
-  - Linear programming
-  - Integer programming
-  - Nonlinear programming
-  - Network optimisation
-  - Dynamic programming
+  - Linear programming, integer programming, nonlinear programming, network optimisation, dynamic programming
 - Decision making
-  - Decision trees
-  - Game theory
-  - Monte Carlo simulations
+  - Decision trees, Monte Carlo simulations, game theory
 
 ### Machine Learning
 - Classification
-  - K nearest neighbours
-  - Logistic regression
-  - Naïve Bayes classifier
-  - Support vector machines
-  - Gaussian discriminant analysis
+  - K nearest neighbours, logistic regression, naïve Bayes classifier, support vector machines, Gaussian discriminant analysis
 - Ensemble methods
-  - Decision trees
-  - Random forests
-  - Bagging
-  - Boosting
-  - Model stacking
+  - Decision trees, random forests, bagging, boosting, model stacking
 - Unsupervised Learning
-  - Principal componnents analysis
-  - Clustering (K-means, etc.)
+  - Principal componnents analysis, clustering (K-means, etc.)
 - Deep neural networks
 
 ### Software
