@@ -1,22 +1,22 @@
-## Data Science Portfolio
+## Table of Contents
 
 ---
 
-### Data Projects 
+## Data Projects 
 
 - [The Effect of Company Sentiment on Stock Volatility](/stock_volatility/stock_volatility.md)
 - [Building a Pricing Recommendation System for AirBnB Listings](/airbnb_pricing/airbnb_pricing.md)
 
 ---
 
-### Blog Posts
+## Blog Posts
 
 - [Consistency, Efficiency, and Mean Squared Error](/consistency/consistency.md)
 - [Spurious Regression](/spurious_regression/spurious_regression.md)
 
 ---
 
-### Education
+## Education
 
 **University of Sydney \| Mar 2015 - Jun 2019** 
 
@@ -33,26 +33,31 @@
 
 ---
 
-### Experience
+## Experience
 
 **Nous Group**  
+
 *Management Consulting Intern*   
 Sydney, Australia | Feb 2019 - May 2019
 
 **Mastercard**  
+
 *Summer Analyst*  
 Sydney, Australia | Dec 2018 - Feb 2019
 
 **180 Degrees Consulting**  
+
 *Pro Bono Strategy Consultant*  
 Sydney, Australia | Aug 2018 - Nov 2018  
 Berlin, Germany | Nov 2017 - Apr 2018 
 
 **Organisation for Economic Cooperation and Development**  
+
 *Statistics Intern*  
 Paris, France | Jun 2017 - Aug 2017
 
 **Project Everest Ventures**  
+
 *Project Team Leader*  
 Siem Reap, Cambodia |  Dec 2016 - Mar 2017  
 *Project Team Member*  
