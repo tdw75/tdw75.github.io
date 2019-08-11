@@ -70,6 +70,7 @@ Paris, France | Jun 2017 - Aug 2017
 
 *Project Team Leader*  
 Siem Reap, Cambodia |  Dec 2016 - Mar 2017  
+
 *Project Team Member*  
 Siem Reap, Cambodia |  Jun 2016 - Jul 2016
 
