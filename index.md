@@ -18,16 +18,16 @@
 
 ## Education
 
-**University of Sydney \| Mar 2015 - Jun 2019** 
+### University of Sydney \| Mar 2015 - Jun 2019  
 
 *Bachelor of Arts with a double major in Econometrics and Germanic Studies*  
 *Bachelor of Commerce with a major in Business Analytics*
 
-**Technical University of Berlin \| Sep 2017 - Aug 2018**
+### Technical University of Berlin \| Sep 2017 - Aug 2018
 
 *Exchange Year in Wirtschaftsmathematik (Business Mathematics)*
 
-**SciencePo, Paris \| Jul 2017**
+### SciencePo, Paris \| Jul 2017
 
 *Short-term Exchange in European Politics and Economics*
 
@@ -40,23 +40,23 @@
 *Management Consulting Intern*   
 Sydney, Australia | Feb 2019 - May 2019
 
-#### Mastercard  
+### Mastercard  
 
 *Summer Analyst*  
 Sydney, Australia | Dec 2018 - Feb 2019
 
-##### 180 Degrees Consulting  
+### 180 Degrees Consulting  
 
 *Pro Bono Strategy Consultant*  
 Sydney, Australia | Aug 2018 - Nov 2018  
 Berlin, Germany | Nov 2017 - Apr 2018 
 
-**Organisation for Economic Cooperation and Development**  
+### Organisation for Economic Cooperation and Development  
 
 *Statistics Intern*  
 Paris, France | Jun 2017 - Aug 2017
 
-**Project Everest Ventures**  
+### Project Everest Ventures    
 
 *Project Team Leader*  
 Siem Reap, Cambodia |  Dec 2016 - Mar 2017  
