@@ -4,7 +4,7 @@
 
 A description of the training set can be found in the appendix.
 
-*Note: I haven't yet got around to uploading all of the code for this. I hope to have it all up soon*
+*Note: I haven't yet got around to uploading all of the code for this. I hope to have it up soon*
 
 ### 1. Exploratory Data Analysis
 
@@ -129,6 +129,14 @@ Constituent Models | Meta Model | RMSE
 Lasso, KNN with PCA, Random Forest, XGBoost | Linear regression | 129.27
 
 ### 5. Analysis
+
+Model |	Train CV RMSE |	Test RMSE
+------|:-------------:|:--------:
+Lasso	| 144.26	| XXX.XX
+KNN with PCA	| 135.38 |	XXX.XX
+Random Forest	| 129.46	| XXX.XX
+XGBoost	| 132.82	| XXX.XX
+Model Stack	| 129.27	| XXX.XX
 
 ### 6. Limitations, Comments, and Future Work 
 
