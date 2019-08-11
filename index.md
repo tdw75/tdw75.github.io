@@ -20,8 +20,8 @@
 
 **University of Sydney \| Mar 2015 - Jun 2019** 
 
-*Bachelor of Arts with a double major in Econometrics and Germanic Studies \| Distinction*  
-*Bachelor of Commerce in Business Analytics \| Distinction*
+*Bachelor of Arts with a double major in Econometrics and Germanic Studies with Distinction*  
+*Bachelor of Commerce in Business Analytics with Distinction*
 
 **Technical University of Berlin \| Sep 2017 - Aug 2018**
 
