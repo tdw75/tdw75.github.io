@@ -83,21 +83,19 @@ Optimal 𝛼 | RMSE
 
 **KNN with PCA**
 
-Non-parametric methods are generally quite flexible and can therefore often model non-linearity quite well. However, they do have drawbacks. Namely, they suffer from the "curse of dimensionality", whereby the amount of data needed for accurate estimation quickly becomes unrealistic in higher dimensions. With 23 features, this issue is definitely relevant for this dataset. In order to overcome this, PCA was performed on the whole set of features; this included the highly correlated features that had been reduced before use in other models, but not including the principal components that resulted from that. From the scree plot below, we can see two noticeable ‘elbows’, after which the following components fail to explain much variance.
+Non-parametric methods are generally quite flexible and can therefore often model non-linearity quite well. However, they do have drawbacks. Namely, they suffer from the "curse of dimensionality", whereby the amount of data needed for accurate estimation quickly becomes unrealistic in higher dimensions. With 23 features, this issue is definitely relevant for this dataset. In order to overcome this, PCA was performed on the whole set of features; this included the highly correlated features that had been reduced before use in other models, but not including the principal components that resulted from that. From the scree plot below, we can see a noticeable ‘elbow’, after the third principal component, after which the following components fail to explain much variance.
 
 <img src="images/KNN_PCA_scree_plot.png?raw=true"/>
 
-Using this rule of thumb, a KNN regression was fit on both the first 3 and first 4 componenents. After cross validation, we can see the optimal number of neighbours for each: 
+Using this rule of thumb, a KNN regression was fit on both the first 3 componenents. After cross validation, we can see the optimal number of neighbours: 
 
 <img src="images/KNN_PCA_3.png?raw=true"/>
-<img src="images/KNN_PCA_4.png?raw=true"/> 
 
-The optimal points were 𝐾=9 and 𝐾=7 for the model fit on the first 3 and 4 components respectively. This model proved to be an improvement upon the lasso regression, with the final results as below:
+The optimal points were 𝐾=9 for the model fit on the first 3 components respectively. This model proved to be an improvement upon the lasso regression, with the final results as below:
 
 Principal Components | Optimal K-neighbours | RMSE
 :-------------------:|:--------------------:|:---:
 3 | 9 | 135.38
-4 | 7 | 138.20
 
 **Random Forest**
 
