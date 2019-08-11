@@ -1,22 +1,27 @@
 ## Table of Contents
 
+1. [Data Projects](#projects)
+2. [Blog Posts](#posts)
+3. [Education](#education)
+3. [Experience](#experience)
+
 ---
 
-## Data Projects 
+## Data Projects <a name="projects"></a>
 
 - [The Effect of Company Sentiment on Stock Volatility](/stock_volatility/stock_volatility.md)
 - [Building a Pricing Recommendation System for AirBnB Listings](/airbnb_pricing/airbnb_pricing.md)
 
 ---
 
-## Blog Posts
+## Blog Posts <a name="posts"></a>
 
 - [Consistency, Efficiency, and Mean Squared Error](/consistency/consistency.md)
 - [Spurious Regression](/spurious_regression/spurious_regression.md)
 
 ---
 
-## Education
+## Education <a name="educations"></a>
 
 ### University of Sydney \| Mar 2015 - Jun 2019  
 
@@ -33,7 +38,7 @@
 
 ---
 
-## Experience
+## Experience <a name="experience"></a>
 
 ### Nous Group  
 
