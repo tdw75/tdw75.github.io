@@ -11,7 +11,7 @@
 <a name="projects"></a>
 ## Data Projects 
 
-- [The Effect of Company Sentiment on Stock Volatility](/stock_volatility/stock_volatility.md)
+- [The Effect of Company Sentiment on Stock Volatility (Coming Soon)](/stock_volatility/stock_volatility.md)
 - [Building a Pricing Recommendation System for AirBnB Listings](/airbnb_pricing/airbnb_pricing.md)
 
 ---
@@ -19,8 +19,8 @@
 <a name="posts"></a>
 ## Blog Posts 
 
-- [Consistency, Efficiency, and Mean Squared Error](/consistency/consistency.md)
-- [Spurious Regression](/spurious_regression/spurious_regression.md)
+- [Consistency, Efficiency, and Mean Squared Error (Coming Soon)](/consistency/consistency.md)
+- [Spurious Regression (Coming Soon)](/spurious_regression/spurious_regression.md)
 
 ---
 
