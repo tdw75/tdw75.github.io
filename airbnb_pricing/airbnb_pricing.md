@@ -158,7 +158,7 @@ Another interesting aspect to look at is the feature importance for both the XGB
 
 
 ### 6. Limitations, Comments, and Future Work 
-
+ 
 - cross validation
 - missing variables
 - quality of the data imputation
