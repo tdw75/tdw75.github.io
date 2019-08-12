@@ -156,6 +156,7 @@ Another interesting aspect to look at is the feature importance for both the XGB
 
 <img src="images/XGB_feature_importance.png?raw=true"/>
 
+Here we can see the feature importance according to the gain criterion, which measures the relative contribution of the feature to the model, i.e. its importance relative of each feature for prediction, relative to the rest of the features. 
 
 ### 6. Limitations, Comments, and Future Work 
  
