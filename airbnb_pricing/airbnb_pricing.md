@@ -56,9 +56,11 @@ Another important factor regarding location in a city, is not only the postcode 
 
 <img src="images/PCA_distance_scree_plot.png?raw=true"/>
 
-The property_type variable, contained 30 distinct classes. Only 11 of these classes were proporationally greater than 0.05%, and these 11 classes account for around 99% of all listings in the training set. Given the infrequency of the remaining 19 classes, they were grouped into an 'Other' class. This transformation simplified the categorical variable in preparation for a median encoding to be applied, as was done above for the postcodes. Three categorical variables (host_is_superhost, host_identity_verified, and instant_bookable) were found to be binary, listed as either ‘t’ or ‘f’, and thus were transformed into dummy variables. Median encoding was then applied to the remaining categorical variables (room_type and cancellation_policy), each of which had fewer than five classes. The final component of the feature engineering was to deal with the perfect multicollinearity of the review scores. PCA was again used for this task; first three principal components explained over 83% of the variance within the seven variables and were selected to ultimately be features. A final list of features can be seen in Appendix.
+The property_type variable, contained 30 distinct classes. Only 11 of these classes were proporationally greater than 0.05%, and these 11 classes account for around 99% of all listings in the training set. Given the infrequency of the remaining 19 classes, I grouped them into an 'Other' class. This transformation simplified the categorical variable in preparation for a median encoding to be applied, as was done above for the postcodes. Three categorical variables (host_is_superhost, host_identity_verified, and instant_bookable) are be binary, listed as either ‘t’ or ‘f’, and thus could be transformed into dummy variables. I then used median encoding on the remaining categorical variables (room_type and cancellation_policy), each of which had fewer than five classes. The final component of the feature engineering is to deal with the perfect multicollinearity of the review scores. PCA is again perfect for this task; first three principal components explained over 83% of the variance within the seven variables and became part of the final feature set. 
 
 <img src="images/PCA_reviews_scree_plot.png?raw=true"/>
+
+A final list of features can be seen in Appendix.
 
 ### 4. Modelling 
 
@@ -199,22 +201,22 @@ Host_is_superhost | Integer (64)
 Host_total_listings_count | Integer (64)
 Host_identity_verified | Integer (64)
 Accommodates | Integer (64)
-Filled_bathrooms | Float (64)
-Filled_bedrooms | Float (64)
-Filled_beds | Float (64)
-Filled_security_deposits | Float (64)
-Filled_cleaning_fee | Float (64)
+Bathrooms | Float (64)
+Bedrooms | Float (64)
+Beds | Float (64)
+Security_deposit | Float (64)
+Cleaning_fee | Float (64)
 Extra_people | Integer (64)
 Minimum_nights | Integer (64)
 Maximum_nights | Integer (64)
 Number_of_reviews | Integer (64)
 Instant_bookable | Integer (64)
-Property_feature | Float (64)
-Postcode_feature | Float (64)
+Property_type | Float (64)
+Postcode | Float (64)
 Distance_feature | Float (64)
-Room_feature | Float (64)
-Cancellation_feature | Float (64)
-Fillied_reviews_per_month | Float (64)
+Room_type | Float (64)
+Cancellation_policy | Float (64)
+Reviews_per_month | Float (64)
 Review_pc_1 | Float (64)
 Review_pc_2 | Float (64)
 Review_pc_3 | Float (64)
