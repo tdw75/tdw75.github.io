@@ -154,6 +154,8 @@ There are a few interesting points here. Firstly, the lasso has a negative coeff
 
 Another interesting aspect to look at is the feature importance for both the XGBoost and random forest models. This allows us to see which variables had the greatest impact on listing prices. This is naturally a very important piece of information for AirBnB hosts. By identifying the property features that are most important to customers and most influential on the price, hosts can adjust their pricing strategies accordingly in order to maximise demand/interest as well as revenue.
 
+<img src="images/XGB_feature_importance.png?raw=true"/>
+
 
 ### 6. Limitations, Comments, and Future Work 
 
