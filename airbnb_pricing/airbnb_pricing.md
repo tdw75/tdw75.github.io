@@ -149,11 +149,11 @@ KNN with PCA	| 0.03
 Random Forest	| 0.47	
 XGBoost	| 0.54	
 
-There are a few interesting points here. Firstly, the lasso has a negative coefficient that is very close to zero. This implies that the predictions from the lasso model were actually counted as a negative in the model stack. At first glance you could assume that the lasso is not that useful and could just be taken out. However, a model stack without the lasso gave an RMSE of 129.96, worse than before. This means that the negative coefficient still provides valuable information to the final stack through its joint interactions with the other leaners.  
+There are a few interesting points here. Firstly, the lasso has a negative coefficient that is also very close to zero. This implies that if the lasso model predicted price were to increase by $1, the model stack actually would predict a $0.01 decrease in price, assuming all other factors were held equal. At first thought you may assume that the lasso is not that useful and should thus be taken out. However, a model stack without the lasso gave an RMSE of 129.96, worse than before. This means that the negative coefficient still provides valuable information to the final stack through its joint interactions with the other leaners.  
 
 
-Another interesting aspect to look at is the variable importance as part of the random forest. When bui
-also important to let listers know what apartment features can increase the price. This can let them adjust their strategies accordingly
+Another interesting aspect to look at is the feature importance for both the XGBoost and random forest models. This allows us to see which variables had the greatest impact on listing prices. This is naturally a very important piece of information for AirBnB hosts. By identifying the property features that are most important to customers and most influential on the price, hosts can adjust their pricing strategies accordingly in order to maximise demand/interest as well as revenue.
+
 
 ### 6. Limitations, Comments, and Future Work 
 
@@ -162,6 +162,8 @@ also important to let listers know what apartment features can increase the pric
 - quality of the data imputation
 
 ### 7. Appendix
+
+**Train Data Set**
 
 Variable |	Non-null Values |	Data Type
 ---------|:----------------:|:--------:
@@ -194,6 +196,7 @@ Instant bookable	| 7000	| Object
 Cancellation policy	| 7000	| Object
 Reviews per month	| 5769	| Float (64)
 
+**Final Feature List**
 
 Feature |	Data Type
 --------|:--------:
