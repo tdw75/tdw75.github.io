@@ -14,21 +14,27 @@ For the financial data we used Bloomberg terminals as this allowed us to get tic
 
 ### 2. Twitter Scraping
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+To start off with I used the Twitter API to scrape tweets. But I quickly found out that with the API you can only download tweets from the last week, which is a bit useless for this analysis. Luckily, I stumbled across a brilliant package called *GetOldTweets3* which makes it very easy to scrape tweets from any time frame. Using this, I downloaded a year's worth of tweets with the hashtag #tesla. The code for this is below
 
 ```python
 import pandas as pd
 import numpy as np
 import GetOldTweets3 as got3
-import statsmodels.api as sm
-from statsmodels.tsa.stattools import adfuller
-from statsmodels.tsa.arima_model import ARIMA
-#from statsmodels.tsa.stattools import acf, pacf
-from statsmodels.stats.diagnostic import acorr_ljungbox
-#import statsmodels.graphics.tsaplots as tsa
-import matplotlib.pyplot as plt
-import nltk.sentiment.sentiment_analyzer import SentimentIntensityAnalyzer
-import langid
+
+tweet_criteria = got3.manager.TweetCriteria().setQuerySearch('#tesla').setSince("2018-05-01").setUntil("2018-05-02")
+# set criteria for tweet scraping
+tweets_raw = pd.DataFrame(got3.manager.TweetManager.getTweets(tweet_criteria))
+
+# extract the text and date of the tweet into a format that we can read/analyse
+
+tweets_df = pd.DataFrame(columns = ['text', 'date'])
+tweets_df['text'] = tweets_raw[0].apply(lambda x: x.text)
+tweets_df['date'] = tweets_raw[0].apply(lambda x: x.date)
+
+# change tweet timezone from UTC to New York time
+
+tweets_df = tweets_df.set_index('date')
+tweets_df = tweets_df.tz_convert('US/Eastern')
 ```
 
 ### 3. Data Cleaning
