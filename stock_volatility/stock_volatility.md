@@ -4,15 +4,21 @@
 
 ### 1. Introduction and Data Description
 
-The goal of this project is to try to analyse the relationship between sentiment towards a company and the volatility of its stock price. More specifically, we wanted to see the effect that sentiment during the overnight period when the stock market is closed on the volatility at market open the next day. The company we used as an example is Tesla, which as a famously volatile stock should allow for some interesting analysis.
+The goal of this project was to try to analyse the relationship between sentiment towards a company and the volatility of its stock price. More specifically, we wanted to see the effect that sentiment during the overnight period when the stock market is closed on the volatility at market open the next day. The example company here is Tesla, which is listed on the NASDAQ as *TSLA*. Tesla is a famously volatile stock so it should allow for some interesting analysis. This process, however, can be applied to any company.
 
 To do this, we clearly need a few different pieces of information. First, we need a measure of volatility for TSLA stock as well as a benchmark to compare it against. Second, we need some covariates to avoid problems such as omitted variable bias, whereby information of an unseen variable is present in the variable of interest, which makes the variable of interest appear to have more explanatory power than it does in reality. Finally, we of course need some measure of sentiment towards Tesla.
 
-For the financial data we used Bloomberg terminals as this allowed us to get tick-by-tick data, i.e. a record of every transaction made. From here we got TSLA stock data for the first 30 mins of each day between 31 October 2018 and 30 April 2019. Unfortunately, the terminals didn't allow us to download data from earlier than 31 October, which limited the time frame of the analysis. As a benchmark we used the S&P500, which is the standard market index for the US stock market. We got S&P500 data for the same time frame.
+For the measure of volatility, we decided on a metric called realised volatility. As volatility only shows variation at a single point in time, realised volatility allows us to measure the accumulated volatilty in a particular time frame. The calculation for this is shown later on. 
+
+To calculate this, we needed financial data. We got this from Bloomberg terminals as this allowed us to get tick-by-tick data, i.e. a record of every transaction made. From here we got TSLA stock data for the first 30 mins of each day between 31 October 2018 and 30 April 2019. Unfortunately, the terminals didn't allow us to download data from earlier than 31 October, which limited the time frame of the analysis. The standard market index for the US stock market is the S&P500, so we used that as our benchmark and downloaded got S&P500 data for the same time frame.
+
+For the second component we selected two covariates, *Press Release* and *Google Trends*. *Press Release* is a dummy variable of whether Tesla released a press report on that day, we chose this as company press releases, particularly after big events, are likely to influence public sentiment. *Google Trends* is a measure of Tesla's search engine popularity on each day, providing a good proxy for publc engagement with the company.
+
+Finally, we need a measure of public sentiment towards Telsa. To calculate this, we analysed tweets that hashtagged Tesla and used a natural language processing technique called a sentiment analysis to determine if positive or negative language was used when referencing Tesla. The steps for this are shown below.
 
 ### 2. Twitter Scraping
 
-To start off with I used the Twitter API to scrape tweets. But I quickly found out that with the API you can only download tweets from the last week, which is a bit useless for this analysis. Luckily, I stumbled across a brilliant package called *GetOldTweets3* which makes it very easy to scrape tweets from any time frame. Using this, I downloaded a year's worth of tweets with the hashtag *#tesla*. The code for this is below
+To start off with I tried to use the Twitter API to scrape tweets. But I quickly found out that with the API you can only download tweets from the last week, which is a bit useless for this analysis. Luckily, I stumbled across a brilliant package called *GetOldTweets3*, which makes it very easy to scrape tweets from any time frame. Using this, I downloaded a year's worth of tweets with the hashtag *#tesla*. The code for this is below
 
 ```python
 import pandas as pd
@@ -22,18 +28,19 @@ import GetOldTweets3 as got3
 tweet_criteria = got3.manager.TweetCriteria().setQuerySearch('#tesla').setSince("2018-05-01").setUntil("2018-05-02")
 tweets_raw = pd.DataFrame(got3.manager.TweetManager.getTweets(tweet_criteria))
 
-# extract the text and date of the tweet into a format that we can read/analyse
+# extract the text and date of the tweet
 tweets = pd.DataFrame(columns = ['text', 'date'])
 tweets['text'] = tweets_raw[0].apply(lambda x: x.text)
 tweets['date'] = tweets_raw[0].apply(lambda x: x.date)
 
-# change tweet timezone from GMT to New York time
+# change tweet timezone from GMT to New York time where the NASDAQ is located
 tweets = tweets.set_index('date')
 tweets = tweets.tz_convert('US/Eastern')
 ```
 
 ### 3. Data Cleaning
 
+With the tweets scraped
 
 ```python
 print(tweets.isna().sum())
@@ -249,7 +256,7 @@ aic = pd.DataFrame(0, index=['AR('+str(i).zfill(1)+')' for i in range(0,P)],
 for p in range(0,P):
     for q in range(0,Q):
         y = detrended_y
-        X = reg_data[['Sentiment', 'News Reports','Google trends']]
+        X = reg_data[['Sentiment', 'Press Release','Google trends']]
         model = ARIMA(endog=y, exog=X, order=(p,0,q))
         arma = model.fit(method='mle')
         aic.iloc[p,q] = round(arma.aic,3)
@@ -259,7 +266,7 @@ aic
 
 ```python
 y = detrended_y 
-X = reg_data[['Sentiment', 'News Reports','Google trends']]
+X = reg_data[['Sentiment', 'Press Release','Google trends']]
 model = ARIMA(endog=y, exog=X, order=(1,0,0))
 armax = model.fit(method='mle')
 print(arma`x.summary())
