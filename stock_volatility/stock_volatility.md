@@ -49,7 +49,7 @@ tweets.describe()
 
 Running this 
 
- | text
+ | 
 ---|---:
 count	| 338528
 unique	| 325248
