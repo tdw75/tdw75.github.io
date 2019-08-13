@@ -6,7 +6,7 @@
 
 The goal of this project is to try to analyse the relationship between sentiment towards a company and the volatility of its stock price. More specifically, we wanted to see the effect that sentiment during the overnight period when the stock market is closed on the volatility at market open the next day. The company we used as an example is Tesla, which as a famously volatile stock should allow for some interesting analysis.
 
-To do this, we clearly need a few different pieces of information. First, we need data on TSLA stock as well as a benchmark to compare it against. Second, we need some covariates to avoid problems such as omitted variable bias, whereby information of an unseen variable is present in the variable of interest, which makes the variable of interest appear to have more explanatory power than it does in reality. Finally, we of course need some measure of sentiment towards Tesla.
+To do this, we clearly need a few different pieces of information. First, we need a measure of volatility for TSLA stock as well as a benchmark to compare it against. Second, we need some covariates to avoid problems such as omitted variable bias, whereby information of an unseen variable is present in the variable of interest, which makes the variable of interest appear to have more explanatory power than it does in reality. Finally, we of course need some measure of sentiment towards Tesla.
 
 For the financial data we used Bloomberg terminals as this allowed us to get tick-by-tick data, i.e. a record of every transaction made. From here we got TSLA stock data for the first 30 mins of each day between 31 October 2018 and 30 April 2019. Unfortunately, the terminals didn't allow us to download data from earlier than 31 October, which limited the time frame of the analysis. As a benchmark we used the S&P500, which is the standard market index for the US stock market. We got S&P500 data for the same time frame.
 
@@ -72,7 +72,7 @@ tweets = tweets.drop(['text', 'language'], axis=1)
 tweets.columns = ['text']
 ```
 
-### 4. Sentiment Analysis and Further Data Preparation
+### 4. Sentiment Analysis and Realised Volatility
 
 ```python
 import nltk.sentiment.sentiment_analyzer import SentimentIntensityAnalyzer
@@ -104,6 +104,83 @@ plt.ylabel('Sentiment')
 
 plt.show()
 ```
+
+```python
+def overnight_sentiment(data):
+    time_1 = data.index.indexer_between_time('00:00:00', '9:30:00')
+    morning = data.iloc[time_1]
+    time_2 = data.index.indexer_between_time('16:30:00', '23:59:59')
+    evening = data.iloc[time_2]
+    
+    sentiment = pd.DataFrame(morning['compound'].groupby(pd.Grouper(freq='D')).mean())
+    sentiment.columns = ['morning']
+    sentiment['evening'] = evening['compound'].groupby(pd.Grouper(freq='D')).mean()
+    sentiment['day'] = (sentiment['morning'] + sentiment['evening'].shift())/2
+    
+    return sentiment
+    
+def realised_volatility(data, end='10:00:00'):
+    
+    data.index = data['Dates']
+    time = data.index.indexer_between_time('9:30:00', end)
+    data = data.iloc[time]
+    data = data.reset_index(drop=True)
+    
+    data['Previous_price'] = data['Price'].shift()
+    data['Sq_log_return'] = np.log1p(data['Price']/data['Previous_price'])**2
+    
+    data.index = data['Dates']
+    data = data.dropna().groupby(pd.Grouper(freq='D')).sum()
+    data = data[data.index.dayofweek < 5] # select weekdays only
+    data = np.sqrt(data['Sq_log_return'])
+    data = data[data!=0]
+    
+    return data
+```
+
+```python
+excel = pd.ExcelFile('Collated Opening 60.xlsx')
+tsla_oct = pd.read_excel(excel, 'TSLA')
+tsla_april = pd.read_excel(excel, 'TSLA Apr')
+
+S_P_index = pd.read_excel(excel, 'S&P500')
+S_P_index = S_P_index[['Dates', 'Price']]
+
+tsla_price = pd.concat([tsla_oct, tsla_april], axis=0)
+tsla_price = tsla_price[['Dates', 'Price', 'Size']]
+
+tsla = realised_volatility(tsla_price)
+S_P = realised_volatility(S_P_index)
+overnight = overnight_sentiment(tweets)
+overnight.index = overnight.index.strftime('%Y-%m-%d')
+covariates = pd.read_excel('Covariates data.xlsx', index_col='Day')
+
+reg_data = pd.merge(pd.DataFrame(tsla), pd.DataFrame(S_P), how='inner', left_index=True, right_index=True)
+reg_data = pd.merge(reg_data, pd.DataFrame(overnight['day']), how='inner', left_index=True, right_index=True)
+reg_data.columns = ['TSLA', 'S&P500', 'Sentiment']
+reg_data = pd.merge(reg_data, covariates, how='inner', left_index=True, right_index=True)
+reg_data['Sentiment'] = reg_data['Sentiment']*100
+```
+
+```python
+months = ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr']
+
+fig, ax = plt.subplots(1,1, figsize = [16,5])
+
+ax.plot(y)
+ax.set_title("Difference between the realised volatility of TSLA and S&P500 in the first 30 minutes of each day")
+ax.set_ylabel("Realised volatility difference")
+ax.set_xlabel("Date")
+ax.set_xticks(ax.get_xticks()[::21])
+ax.set_xticklabels(months)
+
+plt.show()
+```
+
+```python
+
+```
+
 ### 5. Model Estimation
 
 
