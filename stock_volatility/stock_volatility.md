@@ -10,8 +10,6 @@ To do this, we clearly need a few different pieces of information. First, we nee
 
 For the financial data we used Bloomberg terminals as this allowed us to get tick-by-tick data, i.e. a record of every transaction made. From here we got TSLA stock data for the first 30 mins of each day between 31 October 2018 and 30 April 2019. Unfortunately, the terminals didn't allow us to download data from earlier than 31 October, which limited the time frame of the analysis. As a benchmark we used the S&P500, which is the standard market index for the US stock market. We got S&P500 data for the same time frame.
 
-
-
 ### 2. Twitter Scraping
 
 To start off with I used the Twitter API to scrape tweets. But I quickly found out that with the API you can only download tweets from the last week, which is a bit useless for this analysis. Luckily, I stumbled across a brilliant package called *GetOldTweets3* which makes it very easy to scrape tweets from any time frame. Using this, I downloaded a year's worth of tweets with the hashtag *#tesla*. The code for this is below
@@ -33,8 +31,6 @@ tweets['date'] = tweets_raw[0].apply(lambda x: x.date)
 tweets = tweets.set_index('date')
 tweets = tweets.tz_convert('US/Eastern')
 ```
-
-
 
 ### 3. Data Cleaning
 
@@ -104,6 +100,8 @@ plt.ylabel('Sentiment')
 
 plt.show()
 ```
+
+<img src="images/Daily Twitter sentiment.png?raw=true"/>
 
 ```python
 def overnight_sentiment(data):
@@ -180,9 +178,37 @@ ax.set_xticklabels(months)
 plt.show()
 ```
 
+<img src="images/Realised volatility.png?raw=true"/>
+
+```python
+import statsmodels.api as sm
+
+y = reg_data['TSLA'] - reg_data['S&P500']
+X = np.arange(0, len(y))
+X = sm.add_constant(X)
+model = sm.OLS(y, X)
+res = model.fit()
+detrended_y = y - res.
+
+fig, ax = plt.subplots(1,1, figsize = [16,5])
+
+ax.plot(detrended_y)
+ax.set_title("Difference between the realised volatility of TSLA and S&P500 in the first 30 minutes of each day")
+ax.set_ylabel("Realised volatility difference")
+ax.set_xlabel("Date")
+ax.set_xticks(ax.get_xticks()[::21])
+ax.set_xticklabels(months)
+
+plt.show()
+```
+
+<img src="images/Detrended realised volatility.png?raw=true"/>
+
 **Ljung-Box test*
 
 ```python
+from statsmodels.stats.diagnostic import acorr_ljungbox
+
 LB_test = acorr_ljungbox(y, lags=20)[1]
 
 fig, ax = plt.subplots(1,1, figsize = [16,5])
@@ -200,14 +226,20 @@ plt.legend()
 plt.show()
 ```
 
-
+<img src="images/Realised volatility Ljung-Box test.png?raw=true"/>
 
 ```python
+from statsmodels.tsa.stattools import adfuller
+
 unit_root_test = adfuller(detrended_y)
 unit_root_test[1]
 ```
 
+
+
 ```python
+from statsmodels.tsa.arima_model import ARIMA
+
 P = 3
 Q = 2
 
