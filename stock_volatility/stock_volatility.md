@@ -59,6 +59,8 @@ tweets['stripped_text'] = tweets['text'].apply(strip_charachters)
 ```
 
 ```python
+import langid
+
 tweets['language'] = tweets['stripped_text'].apply(langid.classify)
 tweets['language'] = tweets['language'].apply(lambda x: x[0])
 tweets = tweets[tweets['language'] == 'en']
@@ -73,6 +75,8 @@ tweets.columns = ['text']
 ### 4. Sentiment Analysis and Further Data Preparation
 
 ```python
+import nltk.sentiment.sentiment_analyzer import SentimentIntensityAnalyzer
+
 analyser = SentimentIntensityAnalyzer()
 scores = pd.DataFrame(tweets['text'].apply(analyser.polarity_scores))
 for word in ['neg', 'neu', 'pos', 'compound']: 
@@ -80,6 +84,26 @@ for word in ['neg', 'neu', 'pos', 'compound']:
 daily_sentiment = tweets['compound'].groupby(pd.Grouper(freq='D')).mean()
 ```
 
+```python
+analyser = SentimentIntensityAnalyzer()
+scores = pd.DataFrame(tweets['text'].apply(analyser.polarity_scores))
+for word in ['neg', 'neu', 'pos', 'compound']: 
+    tweets[word] = [d[word] for idx, d in scores.text.items()]
+daily_sentiment = tweets['compound'].groupby(pd.Grouper(freq='D')).mean()
+```
+
+```python
+import matplotlib.pyplot as plt
+
+daily_sentiment1 = daily_sentiment*100
+daily_sentiment1.plot(figsize=(16,5))
+plt.title('Daily Twitter sentiment towards Tesla')
+plt.hlines(0, xmin=min(daily_sentiment1.index), xmax=max(daily_sentiment1.index), linestyles='dashed')
+plt.xlabel('Date')
+plt.ylabel('Sentiment')
+
+plt.show()
+```
 ### 5. Model Estimation
 
 
