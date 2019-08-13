@@ -14,7 +14,7 @@ For the financial data we used Bloomberg terminals as this allowed us to get tic
 
 ### 2. Twitter Scraping
 
-To start off with I used the Twitter API to scrape tweets. But I quickly found out that with the API you can only download tweets from the last week, which is a bit useless for this analysis. Luckily, I stumbled across a brilliant package called *GetOldTweets3* which makes it very easy to scrape tweets from any time frame. Using this, I downloaded a year's worth of tweets with the hashtag #tesla. The code for this is below
+To start off with I used the Twitter API to scrape tweets. But I quickly found out that with the API you can only download tweets from the last week, which is a bit useless for this analysis. Luckily, I stumbled across a brilliant package called *GetOldTweets3* which makes it very easy to scrape tweets from any time frame. Using this, I downloaded a year's worth of tweets with the hashtag *#tesla*. The code for this is below
 
 ```python
 import pandas as pd
@@ -34,23 +34,51 @@ tweets = tweets.set_index('date')
 tweets = tweets.tz_convert('US/Eastern')
 ```
 
+
+
+### 3. Data Cleaning
+
+
 ```python
 print(tweets.isna().sum())
 tweets.describe()
 ```
 
+```python
+tweets = tweets.drop_duplicates()
+```
 
-### 3. Data Cleaning
+Write a function to remove non-punctuation characters
 
-```javascript
-if (isAwesome){
-  return true
-}
+```python
+def strip_charachters(string):
+    for char in '@#':  
+        string = string.replace(char,'')
+    return string
+tweets['stripped_text'] = tweets['text'].apply(strip_charachters)
+```
+
+```python
+tweets['language'] = tweets['stripped_text'].apply(langid.classify)
+tweets['language'] = tweets['language'].apply(lambda x: x[0])
+tweets = tweets[tweets['language'] == 'en']
+tweets.head()
+```
+
+```python
+tweets = tweets.drop(['text', 'language'], axis=1)
+tweets.columns = ['text']
 ```
 
 ### 4. Sentiment Analysis and Further Data Preparation
 
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+```python
+analyser = SentimentIntensityAnalyzer()
+scores = pd.DataFrame(tweets['text'].apply(analyser.polarity_scores))
+for word in ['neg', 'neu', 'pos', 'compound']: 
+    tweets[word] = [d[word] for idx, d in scores.text.items()]
+daily_sentiment = tweets['compound'].groupby(pd.Grouper(freq='D')).mean()
+```
 
 ### 5. Model Estimation
 
