@@ -162,6 +162,9 @@ reg_data = pd.merge(reg_data, covariates, how='inner', left_index=True, right_in
 reg_data['Sentiment'] = reg_data['Sentiment']*100
 ```
 
+### 5. Model Estimation
+
+
 ```python
 months = ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr']
 
@@ -177,14 +180,60 @@ ax.set_xticklabels(months)
 plt.show()
 ```
 
-```python
+**Ljung-Box test*
 
+```python
+LB_test = acorr_ljungbox(y, lags=20)[1]
+
+fig, ax = plt.subplots(1,1, figsize = [16,5])
+
+ax.scatter(np.arange(1,21), LB_test, label = 'p-value')
+
+ax.set_title("Ljung-Box Test Results")
+ax.set_ylabel("Lag Order")
+ax.set_ylabel("p-value")
+ax.set_ylim([0,0.1])
+
+ax.hlines(0.05, 0, 20, linestyles='dashed', label = 'alpha')
+plt.legend()
+
+plt.show()
 ```
 
-### 5. Model Estimation
 
 
-### 5. Inference and Analysis
+```python
+unit_root_test = adfuller(detrended_y)
+unit_root_test[1]
+```
+
+```python
+P = 3
+Q = 2
+
+aic = pd.DataFrame(0, index=['AR('+str(i).zfill(1)+')' for i in range(0,P)], 
+                   columns=['MA('+str(i).zfill(1)+')' for i in range(0,Q)])
+
+for p in range(0,P):
+    for q in range(0,Q):
+        y1 = detrended_y
+        X = reg_data[['Sentiment', 'News Reports','Google trends']]
+        model = ARIMA(endog=y1, exog=X, order=(p,0,q))
+        arma = model.fit(method='mle')
+        aic.iloc[p,q] = round(arma.aic,3)
+        
+aic
+```
+
+```python
+y1 = detrended_y 
+X = reg_data[['Sentiment', 'News Reports','Google trends']]
+model = ARIMA(endog=y1, exog=X, order=(1,0,0))
+arma = model.fit(method='mle')
+print(arma.summary())
+```
+
+### 6. Inference and Analysis
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
 
