@@ -40,12 +40,21 @@ tweets = tweets.tz_convert('US/Eastern')
 
 ### 3. Data Cleaning
 
-With the tweets scraped
+With the tweets scraped, we now need to prepare them for the sentiment analysis. The first thing I checked for was Null value cells and duplicates. Duplicate tweets indicate that a bot has just spammed the same thing and are obviously going to distort the results of our sentiment analysis. 
 
 ```python
 print(tweets.isna().sum())
 tweets.describe()
 ```
+
+Running this 
+
+ | text
+---|---:
+count	| 338528
+unique	| 325248
+top	| Install Nikola Tesla's Patents (https://buff.l...
+freq	| 690
 
 ```python
 tweets = tweets.drop_duplicates()
