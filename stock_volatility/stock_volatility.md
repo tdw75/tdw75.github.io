@@ -1,6 +1,6 @@
 ## This can be your internal website page / project page
 
-**Project description:** This was a group research project I did as part of a financial econometrics course at the University of Sydney. As it was a group project, I obviously worked with colleagues on this. The majority of the theoretical background research, stock data collection through the Bloomberg terminals, and financial analysis was done by my group mates. I did all of the coding, including the sentiment analysis and time series modelling. As such, I'll be focusing on that here. The inference was done as a group but I'll also go through that as well.
+**Project description:** This was a group research project I did as part of a financial econometrics course at the University of Sydney. As it was a group project, I obviously worked with colleagues on this. The majority of the theoretical background research, stock data collection through the Bloomberg terminals, and financial analysis was done by my group mates. I did all of the coding, including the sentiment analysis and time series modelling. As such, I'll be focusing on that here. The inference was done as a group but I'll go through that as well.
 
 ### 1. Introduction and Data Description
 
@@ -22,20 +22,23 @@ import numpy as np
 import GetOldTweets3 as got3
 
 tweet_criteria = got3.manager.TweetCriteria().setQuerySearch('#tesla').setSince("2018-05-01").setUntil("2018-05-02")
-# set criteria for tweet scraping
 tweets_raw = pd.DataFrame(got3.manager.TweetManager.getTweets(tweet_criteria))
 
 # extract the text and date of the tweet into a format that we can read/analyse
+tweets = pd.DataFrame(columns = ['text', 'date'])
+tweets['text'] = tweets_raw[0].apply(lambda x: x.text)
+tweets['date'] = tweets_raw[0].apply(lambda x: x.date)
 
-tweets_df = pd.DataFrame(columns = ['text', 'date'])
-tweets_df['text'] = tweets_raw[0].apply(lambda x: x.text)
-tweets_df['date'] = tweets_raw[0].apply(lambda x: x.date)
-
-# change tweet timezone from UTC to New York time
-
-tweets_df = tweets_df.set_index('date')
-tweets_df = tweets_df.tz_convert('US/Eastern')
+# change tweet timezone from GMT to New York time
+tweets = tweets.set_index('date')
+tweets = tweets.tz_convert('US/Eastern')
 ```
+
+```python
+print(tweets.isna().sum())
+tweets.describe()
+```
+
 
 ### 3. Data Cleaning
 
