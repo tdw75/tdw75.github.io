@@ -16,10 +16,19 @@ For the financial data we used Bloomberg terminals as this allowed us to get tic
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
 
-```javascript
-if (isAwesome){
-  return true
-}
+```python
+import pandas as pd
+import numpy as np
+import GetOldTweets3 as got3
+import statsmodels.api as sm
+from statsmodels.tsa.stattools import adfuller
+from statsmodels.tsa.arima_model import ARIMA
+#from statsmodels.tsa.stattools import acf, pacf
+from statsmodels.stats.diagnostic import acorr_ljungbox
+#import statsmodels.graphics.tsaplots as tsa
+import matplotlib.pyplot as plt
+import nltk.sentiment.sentiment_analyzer import SentimentIntensityAnalyzer
+import langid
 ```
 
 ### 3. Data Cleaning
