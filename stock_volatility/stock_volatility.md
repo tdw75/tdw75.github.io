@@ -1,6 +1,6 @@
 ## This can be your internal website page / project page
 
-**Project description:** This was a group research project I did as part of a financial econometrics course at the University of Sydney. As it was a group project, I obviously worked with colleagues on this. The majority of the theoretical background research, stock data collection through the Bloomberg terminals, and financial analysis was done by my group mates. I did all of the coding, including the sentiment analysis and time series modelling. As such, I'll be focusing on that here. The inference was done as a group but I'll go through that as well.
+**Project description:** This was a group research project I did as part of a financial econometrics course at the University of Sydney. As it was a group project, I worked with colleagues on this. The majority of the theoretical background research, stock data collection through the Bloomberg terminals as well as much of the financial analysis was done by my group mates. I did all of the coding, including the sentiment analysis and time series modelling. As such, I'll be focusing on that here. The inference was done together as a group but I'll go through that as well.
 
 ### 1. Introduction and Data Description
 
