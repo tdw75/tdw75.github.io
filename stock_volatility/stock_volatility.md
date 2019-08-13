@@ -49,12 +49,12 @@ tweets.describe()
 
 Running this  
 
-[]()  | 
-------|-------:
-count	| 338528
-unique	| 325248
-top	| Install Nikola Tesla's Patents (https://buff.l...
-freq	| 690
+<span> | <span>
+-------|-------:
+count | 338528
+unique | 325248
+top | Install Nikola Tesla's Patents (https://buff.l...
+freq | 690
 
 ```python
 tweets = tweets.drop_duplicates()
