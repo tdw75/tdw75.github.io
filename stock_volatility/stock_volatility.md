@@ -47,7 +47,7 @@ print(tweets.isna().sum())
 tweets.describe()
 ```
 
-Running this  <br/>
+Running this  
 []()  | 
 ------|-------:
 count	| 338528
