@@ -47,7 +47,7 @@ print(tweets.isna().sum())
 tweets.describe()
 ```
 
-Running this  
+Running this shows that there are no Null values but there are 13,280 duplicate tweets.
 
 <span> | <span>
 -------|-------:
@@ -56,11 +56,13 @@ unique | 325248
 top | Install Nikola Tesla's Patents (https://buff.l...
 freq | 690
 
+We can delete them as follows:
+
 ```python
 tweets = tweets.drop_duplicates()
 ```
 
-Write a function to remove non-punctuation characters
+Now we need to move on to cleaning up the text of the tweets themselves. Here I've written a function to remove non-punctuation characters '@' and '#', both of which are very common in tweets. This will help the sentiment analysis recognise the individual words better.
 
 ```python
 def strip_charachters(string):
@@ -69,6 +71,8 @@ def strip_charachters(string):
     return string
 tweets['stripped_text'] = tweets['text'].apply(strip_charachters)
 ```
+
+After this, we need to remove all of the non-English tweets. In an ideal world, we'd have the tools to analyse all languages or perfectly translate the tweets to English to analyse them. But given that online translators often misinterpret text, the best option here is to only analyse English tweets. We can use a module called *langid* to identify the language of the tweets after which we can slice the dataframe to exclude all tweets in non-English language.
 
 ```python
 import langid
@@ -79,12 +83,16 @@ tweets = tweets[tweets['language'] == 'en']
 tweets.head()
 ```
 
+This process leaves us with a few superfluous columns so we remove them to leave us with the tweet's text and the time it was posted. 
+
 ```python
 tweets = tweets.drop(['text', 'language'], axis=1)
 tweets.columns = ['text']
 ```
 
 ### 4. Sentiment Analysis and Realised Volatility
+
+
 
 ```python
 import nltk.sentiment.sentiment_analyzer import SentimentIntensityAnalyzer
