@@ -1,6 +1,6 @@
 ## A statistical machine learning based pricing recommendation system for Airbnb listings in Melbourne
 
-**Project description:** This project was completed as an assessment piece for a machine learning and data mining unit at the University of Sydney. For this  assignment, we were given a data set of AirBnB listings in Melbourne and were tasked with using statistical learning methods to build a pricing recommendation system. The data was given in two parts, a labelled train set and an unlabelled test set. The models were validated through Kaggle, where the complete, labelled test set was evaluated. The project gave me a good opportunity to work with a data set that required a fair bit of data wrangling and feature engingeering and to then implement a variety of machine learning algorithms in Python.
+**Project description:** This project was completed as an assessment piece for a machine learning and data mining unit at the University of Sydney. For this  assignment, we were given a data set of AirBnB listings in Melbourne and were tasked with using statistical learning methods to build a pricing recommendation system. The data was given in two parts, a labelled train set and an unlabelled test set. The models were evaluated through Kaggle, where they were run on the complete, labelled test set. The project gave me a good opportunity to work with a data set that required a fair bit of data wrangling and feature engingeering and to then implement a variety of machine learning algorithms in Python.
 
 A description of the train set can be found in the appendix.
 
@@ -128,7 +128,7 @@ Constituent Models | Meta Model | RMSE
 :-----------------:|:----------:|:---:|
 Lasso, KNN with PCA, Random Forest, XGBoost | Linear regression | 129.27
 
-### 5. Model Validation and Analysis
+### 5. Model Evaluation and Analysis
 
 Below is the final performance of each of the five models:
 
