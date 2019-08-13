@@ -216,9 +216,9 @@ aic = pd.DataFrame(0, index=['AR('+str(i).zfill(1)+')' for i in range(0,P)],
 
 for p in range(0,P):
     for q in range(0,Q):
-        y1 = detrended_y
+        y = detrended_y
         X = reg_data[['Sentiment', 'News Reports','Google trends']]
-        model = ARIMA(endog=y1, exog=X, order=(p,0,q))
+        model = ARIMA(endog=y, exog=X, order=(p,0,q))
         arma = model.fit(method='mle')
         aic.iloc[p,q] = round(arma.aic,3)
         
@@ -226,11 +226,11 @@ aic
 ```
 
 ```python
-y1 = detrended_y 
+y = detrended_y 
 X = reg_data[['Sentiment', 'News Reports','Google trends']]
-model = ARIMA(endog=y1, exog=X, order=(1,0,0))
-arma = model.fit(method='mle')
-print(arma.summary())
+model = ARIMA(endog=y, exog=X, order=(1,0,0))
+armax = model.fit(method='mle')
+print(arma`x.summary())
 ```
 
 ### 6. Inference and Analysis
