@@ -18,7 +18,7 @@ Finally, we need a measure of public sentiment towards Telsa. To calculate this,
 
 ### 2. Twitter Scraping
 
-To start off with I tried to use the Twitter API to scrape tweets. But I quickly found out that with the API you can only download tweets from the last week, which is a bit useless for this analysis. Luckily, I stumbled across a brilliant package called *GetOldTweets3*, which makes it very easy to scrape tweets from any time frame. Using this, I downloaded a year's worth of tweets with the hashtag *#tesla*. The code for this is below
+To start off with I tried to use the Twitter API to scrape tweets. But I quickly found out that with the API you can only download tweets from the last week, which is a bit useless for this analysis. Luckily, I stumbled across a brilliant package called *GetOldTweets3*, which makes it very easy to scrape tweets from any time frame. Using this, I downloaded a year's worth of tweets with the hashtag *#tesla* - 338528 of them. Even though we've only got 6 months of financial data, having the whole year of tweets will let us draw some interesting insights later on. The code for this is below
 
 ```python
 import pandas as pd
@@ -92,19 +92,13 @@ tweets.columns = ['text']
 
 ### 4. Sentiment Analysis and Realised Volatility
 
+There are a couple of ways to approach sentiment analysis. One way is with machine learning, which is how a lot of spam filters operate. However, this is quite hard without a labelled training set and the results are going to be a lot less accurate. Another approach is the use of a lexicon or dictionary where words are assigned a specific positivity/negativity. The caveat here is that the dictionary should be applicable to the context of the analysed text as people use language in different ways depending on the situation. As an example, using a lexicon of academic language to analyse tweets or Facebook posts is unlikely to give the desired results and vice versa, as the language used will be completely different. Again, I was lucky enough to find a rules-based approach to sentiment analysis, specifically created for social media posts.
 
+The algorithm is called VADER Sentiment Analysis and has a convenient implementiation in the nltk natural language processing module in python. The way it works is that each word has been assigned a score between -4 and 4 on a scale from negative to neutral to positive. In addition, punction such as exclamation marks with strengthen the sentiment score given to a sentence. There was an academic paper (referenced below) written on the development of the algorithm that showed it produced very successful results. The implementation is as follows: 
 
 ```python
 import nltk.sentiment.sentiment_analyzer import SentimentIntensityAnalyzer
 
-analyser = SentimentIntensityAnalyzer()
-scores = pd.DataFrame(tweets['text'].apply(analyser.polarity_scores))
-for word in ['neg', 'neu', 'pos', 'compound']: 
-    tweets[word] = [d[word] for idx, d in scores.text.items()]
-daily_sentiment = tweets['compound'].groupby(pd.Grouper(freq='D')).mean()
-```
-
-```python
 analyser = SentimentIntensityAnalyzer()
 scores = pd.DataFrame(tweets['text'].apply(analyser.polarity_scores))
 for word in ['neg', 'neu', 'pos', 'compound']: 
