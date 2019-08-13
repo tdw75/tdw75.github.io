@@ -4,9 +4,11 @@
 
 ### 1. Introduction and Data Description
 
-The goal of this project is to try to analyse the relationship between sentiment towards a company and the volatility of its stock price. More specifically, we wanted to see the effect that sentiment during the overnight period when the stock market is closed on the volatility at market open the next day. The company we used as an example is Tesla, which as a famously volatile stock, should allow for some interesting analysis.
+The goal of this project is to try to analyse the relationship between sentiment towards a company and the volatility of its stock price. More specifically, we wanted to see the effect that sentiment during the overnight period when the stock market is closed on the volatility at market open the next day. The company we used as an example is Tesla, which as a famously volatile stock should allow for some interesting analysis.
 
-To do this, we clearly need a few different pieces of information. First, we need some measure of sentiment towards Tesla. Second, we need data on TSLA stock as well as a benchmark to compare it against. Finally, we need some covariates to avoid problems such as omitted variable bias, whereby information of an unseen variable is present in the variable of interest, which makes the variable of interest appear to have more explanatory power than it does in reality.
+To do this, we clearly need a few different pieces of information. First, we need data on TSLA stock as well as a benchmark to compare it against. Second, we need some covariates to avoid problems such as omitted variable bias, whereby information of an unseen variable is present in the variable of interest, which makes the variable of interest appear to have more explanatory power than it does in reality. Finally, we of course need some measure of sentiment towards Tesla.
+
+For the financial data we used Bloomberg terminals as this allowed us to get tick-by-tick data, i.e. a record of every transaction made. From here we got TSLA stock data for the first 30 mins of each day between 31 October 2018 and 30 April 2019. Unfortunately, the terminals didn't allow us to download data from earlier than 31 October, which limited the time frame of the analysis. As a benchmark we used the S&P500, which is the standard market index for the US stock market. We got S&P500 data for the same time frame.
 
 
 
