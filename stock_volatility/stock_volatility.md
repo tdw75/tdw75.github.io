@@ -240,7 +240,7 @@ The data has a slight upward trend. But before we get to that, we should test fo
 
 We can check for autocorrelation using a Ljung-Box test. The Lgung-Box assumes a null hypothesis that the data is independently distributed, i.e. that there is not autocorrelation present. The alternative hypothesis is the data is not independently distributed and that it exibits autocorrelation. That is: 
 
-<img src="images/Ljung_Box_test_hypotheses.PNG" width="300">
+<img src="images/Ljung_Box_test_hypotheses.PNG" width="280">
 
 Using the following code, I've run the test 20 times from lag of 1 to lag of 20.
 
@@ -304,9 +304,9 @@ unit_root_test[1]
 
 With a p value of 0.0003 we reject the null hypothesis of the presence of a unit root. Thus, we can say that the series is stationary.
 
-With these tests done, we are now ready to build our model. Here I am using the ARIMA model function from statsmodel's time series analysis package. The ARIMA model is made up of an autoregressive component, an integrated component (only necessary for non-stationary series), and an moving average component. As our series is stationary, the order of the integrated component is 0 and we are left with what is called an ARMA model. 
+With these tests done, we are now ready to build our model. Here I am using the ARIMA model function from statsmodel's time series analysis package. The ARIMA model is made up of an autoregressive component, an integrated component (only necessary for non-stationary series), and an moving average component. As our series is stationary, the order of the integrated component is 0, i.e. an ARMA model. 
 
-In order to find the optimal order of an ARMA model there are techniques that involve looking at the plots of the time series' autocorrelation function, but the most accurate way is just to fit models at a range of different orders and then choose the model that best fits the data. The following code performs this search.
+As we are trying to estimate the effect of an exogenous variable, we need need to use an extension of the ARMA model called ARMAX, which also includes independent X variables in the regression. In order to find the optimal order of an ARMAX model there are techniques that involve looking at the plots of the time series' autocorrelation function, but the most accurate way is just to fit models at a range of different orders and then choose the model that best fits the data. The following code performs this search.
 
 ```python
 from statsmodels.tsa.arima_model import ARIMA
@@ -333,6 +333,7 @@ Order | MA(0)   | MA(1)
 **AR(1)** | 962.685	| 964.681
 **AR(2)** | 964.676	| 966.433
 
+Using the Akaike Information Criterion (AIC) we can see that the ARMAX(1,0) model performs best. The regression output for this model is shown below.
 
 ```python
 y = detrended_y 
@@ -342,6 +343,7 @@ armax = model.fit(method='mle')
 print(arma`x.summary())
 ```
 
+<img src="images/ARMAX-summary.PNG?raw=true"/>
 
 ### 7. Inference and Analysis
 
