@@ -123,11 +123,15 @@ plt.show()
 
 <img src="images/Daily Twitter sentiment.png?raw=true"/>
 
-Overall, sentiment towards Tesla remains quite positive. There are however three noticeable dips. The three days where sentiment becomes negative are 19 June 2018, 27 September 2018, and 26 February 2019. If search the news for Tesla on these dates we can find that all three coincide with some interesting events. 
+Overall, sentiment towards Tesla remains quite positive. There are however three noticeable dips. The three days where sentiment becomes negative are 19 June 2018, 27 September 2018, and 26 February 2019. If we search the news for Tesla on these dates we can find that all three coincide with some interesting events. 
 
 First, on the 19<sup>th</sup> of June, it came out that an employee had allegedly sabotaged the Tesla factory by making large code changes to Tesla's manufacturing system and sending large amounts of highly sensitive data to thrid parties. Even more interestingly, on the 27<sup>th</sup> of September, Tesla shares dropped 13% in value after Elon Musk was charged with fraud by the SEC (US Securities and Exchnage Commission). Finally, on the 26<sup>th</sup> of February, Musk found himself again in trouble with SEC after they claimed that one of his tweets violated a settlement agreement and asked the courts to hold him in contempt.
 
-Now both Tesla's sentiment and stock price quickly recovered after these incidents but it is interesting to see that there is some connection between sentiment from hashtagged tweets and news events and stock price movements. 
+Now, both Tesla's sentiment and stock price quickly recovered after these incidents, but it is interesting to see that there exists some connection between sentiment from hashtagged tweets and both news events and stock price movements. 
+
+The function I've written below calculates the sentiment during the market close period for each day. The NASDAQ trades between 9:30 and 16:30 each business day. So, here I've had to take the evening sentiment from one day and average it with the morning sentiment of the next. For example, in order to calcluate overnight sentiment before the market opens on Wednesday 17 April 2019, I take mean sentiment from Tuesday 16:30-23:59 and from Wednesday 00:00-09:30 and average them. 
+
+We combine this information with the realised volatility calculated in the next section.
 
 ```python
 def overnight_sentiment(data):
