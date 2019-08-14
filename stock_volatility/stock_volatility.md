@@ -83,7 +83,7 @@ tweets = tweets[tweets['language'] == 'en']
 tweets.head()
 ```
 
-This process leaves us with a few superfluous columns so we remove them to leave us with the tweet's text and the time it was posted. 
+This process leaves us with a few superfluous columns so we remove them to leave just the tweet's text and the time it was posted. 
 
 ```python
 tweets = tweets.drop(['text', 'language'], axis=1)
@@ -129,9 +129,7 @@ First, on the 19<sup>th</sup> of June, it came out that an employee had allegedl
 
 Now, both Tesla's sentiment and stock price quickly recovered after these incidents, but it is interesting to see that there exists some connection between sentiment from hashtagged tweets and both news events and stock price movements. 
 
-The function I've written below calculates the sentiment during the market close period for each day. The NASDAQ trades between 9:30 and 16:30 each business day. So, here I've had to take the evening sentiment from one day and average it with the morning sentiment of the next. For example, in order to calcluate overnight sentiment before the market opens on Wednesday 17 April 2019, I take mean sentiment from Tuesday 16:30-23:59 and from Wednesday 00:00-09:30 and average them. 
-
-We combine this information with the realised volatility calculated in the next section.
+The function I've written below calculates the sentiment during the market close period for each day. The NASDAQ trades between 9:30 and 16:30 each business day. 
 
 ```python
 def overnight_sentiment(data):
@@ -148,11 +146,24 @@ def overnight_sentiment(data):
     return sentiment
 ```
 
+So, here I've had to take the evening sentiment from one day and average it with the morning sentiment of the next. For example, in order to calcluate overnight sentiment before the market opens on Wednesday 17 April 2019, I take mean sentiment from Tuesday 16:30-23:59 and from Wednesday 00:00-09:30 and average them. 
+
+We combine this information with the realised volatility calculated in the next section.
+
 ### 5. Calculating Realised Volatility
+
+Before moving on to the calculation of realised volatility, let's quickly go through what it is. As I mentioned before, volatility is a measure of variation at a specific point in time. Realised volatility, sums the volatility at each time point to measure the accumulated volatility in a certain time frame.
+
+To calculate it, we first neet to calculate the log return of the stock as follows:
+
+   r<sub>t</sub> = log(P<sub>t</sub>) + log(P<sub>t-1</sub>)
+   
+   &sum;<sup>N</sup><sub>i=1</sub>
+
 
 ```python
 def realised_volatility(data, end='10:00:00'):
-    
+     
     data.index = data['Dates']
     time = data.index.indexer_between_time('9:30:00', end)
     data = data.iloc[time]
@@ -169,6 +180,7 @@ def realised_volatility(data, end='10:00:00'):
     
     return data
 ```
+
 
 ```python
 excel = pd.ExcelFile('Collated Opening 60.xlsx')
