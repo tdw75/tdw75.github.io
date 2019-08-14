@@ -242,7 +242,7 @@ The data has a slight upward trend. But before we get to that, we should test fo
 
 We can check for autocorrelation using a Ljung-Box test. The Lgung-Box assumes a null hypothesis that the data is independently distributed, i.e. that there is not autocorrelation present. The alternative hypothesis is the data is not independently distributed and that it exibits autocorrelation. That is 
 
-<img src="images/Ljung_Box_test_hypotheses.png" width="200">
+<img src="images/Ljung_Box_test_hypotheses.PNG" width="200">
 
 ```python
 from statsmodels.stats.diagnostic import acorr_ljungbox
