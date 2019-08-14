@@ -94,7 +94,9 @@ tweets.columns = ['text']
 
 There are a couple of ways to approach sentiment analysis. One way is with machine learning, which is how a lot of spam filters operate. However, this is quite hard without a labelled training set and the results are going to be a lot less accurate. Another approach is the use of a lexicon or dictionary where words are assigned a specific positivity/negativity. The caveat here is that the dictionary should be applicable to the context of the analysed text as people use language in different ways depending on the situation. As an example, using a lexicon of academic language to analyse tweets or Facebook posts is unlikely to give the desired results and vice versa, as the language used will be completely different. Again, I was lucky enough to find a rules-based approach to sentiment analysis, specifically created for social media posts.
 
-The algorithm is called VADER Sentiment Analysis and has a convenient implementiation in the nltk natural language processing module in python. The way it works is that each word has been assigned a score between -4 and 4 on a scale from negative to neutral to positive. In addition, punction such as exclamation marks with strengthen the sentiment score given to a sentence. There was an academic paper (referenced below) written on the development of the algorithm that showed it produced very successful results. The implementation is as follows: 
+The algorithm is called VADER Sentiment Analysis and has a convenient implementiation in the nltk natural language processing module in python. The way it works is that each word has been assigned a score between -4 and 4 on a scale from negative to neutral to positive. In addition, punction such as exclamation marks with strengthen the sentiment score given to a sentence. After the analysis each phrase/tweet receives a sentiment score between -1 and 1.
+
+There was an academic paper (referenced below) written on the development of the algorithm that showed it produced very successful results. The implementation is as follows: 
 
 ```python
 import nltk.sentiment.sentiment_analyzer import SentimentIntensityAnalyzer
@@ -154,14 +156,19 @@ We combine this information with the realised volatility calculated in the next 
 
 Before moving on to the calculation of realised volatility, let's quickly go through what it is. As I mentioned before, volatility is a measure of variation at a specific point in time. Realised volatility, sums the volatility at each time point to measure the accumulated volatility in a certain time frame.
 
-To calculate it, we first neet to calculate the log return of the stock as follows:
+To calculate it, we first need to calculate the log return of the stock as follows:
 
-   r<sub>t</sub> = log(P<sub>t</sub>) + log(P<sub>t-1</sub>)
-   
-   
-   RVar<sub>t</sub> = &sum;<sup>N</sup><sub>i=1</sub> (r<sub>t</sub><sup>2</sup>)
+<img src="images/Log_return_formula.PNG?raw=true"/>    
 
-   RV<sub>t</sub> = (RVar<sub>t</sub>)<sup>&frac12;</sup>
+Then realised variance is calculated by sum all of the squared log returns in the relevant time frame:
+
+<img src="images/Realised_variance_formula.PNG?raw=true"/>
+
+Finally, realised volatility is the square root of realised variance:
+
+<img src="images/Realised_volatility_formula.png?raw=true"/>
+
+This process is implemented with the following function:
 
 ```python
 def realised_volatility(data, end='10:00:00'):
@@ -183,17 +190,17 @@ def realised_volatility(data, end='10:00:00'):
     return data
 ```
 
+Next we use the function to calculate realised volatility for both TSLA and the S&P500 the first 30 minutes of each business day. Sentiment is also calculated with the *overnight_sentiment* function written before. After that we read in the data for the covariates and merge all of the data sets with inner joins. Finally, as sentiment is given as a score between -1 and 1, I've multiplied it by 100 so that the final result is slightly easier to interpret. 
 
 ```python
 excel = pd.ExcelFile('Collated Opening 60.xlsx')
 tsla_oct = pd.read_excel(excel, 'TSLA')
 tsla_april = pd.read_excel(excel, 'TSLA Apr')
+tsla_price = pd.concat([tsla_oct, tsla_april], axis=0)
+tsla_price = tsla_price[['Dates', 'Price', 'Size']]
 
 S_P_index = pd.read_excel(excel, 'S&P500')
 S_P_index = S_P_index[['Dates', 'Price']]
-
-tsla_price = pd.concat([tsla_oct, tsla_april], axis=0)
-tsla_price = tsla_price[['Dates', 'Price', 'Size']]
 
 tsla = realised_volatility(tsla_price)
 S_P = realised_volatility(S_P_index)
@@ -208,7 +215,7 @@ reg_data = pd.merge(reg_data, covariates, how='inner', left_index=True, right_in
 reg_data['Sentiment'] = reg_data['Sentiment']*100
 ```
 
-### 5. Model Estimation
+### 6. Model Estimation
 
 
 ```python
@@ -314,8 +321,6 @@ print(arma`x.summary())
 ```
 
 
-### 6. Inference and Analysis
+### 7. Inference and Analysis
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
