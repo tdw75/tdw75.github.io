@@ -90,7 +90,7 @@ tweets = tweets.drop(['text', 'language'], axis=1)
 tweets.columns = ['text']
 ```
 
-### 4. Sentiment Analysis and Realised Volatility
+### 4. Sentiment Analysis 
 
 There are a couple of ways to approach sentiment analysis. One way is with machine learning, which is how a lot of spam filters operate. However, this is quite hard without a labelled training set and the results are going to be a lot less accurate. Another approach is the use of a lexicon or dictionary where words are assigned a specific positivity/negativity. The caveat here is that the dictionary should be applicable to the context of the analysed text as people use language in different ways depending on the situation. As an example, using a lexicon of academic language to analyse tweets or Facebook posts is unlikely to give the desired results and vice versa, as the language used will be completely different. Again, I was lucky enough to find a rules-based approach to sentiment analysis, specifically created for social media posts.
 
@@ -105,6 +105,8 @@ for word in ['neg', 'neu', 'pos', 'compound']:
     tweets[word] = [d[word] for idx, d in scores.text.items()]
 daily_sentiment = tweets['compound'].groupby(pd.Grouper(freq='D')).mean()
 ```
+
+Before we use the sentiment analysis for overnight period, it might be interesting to have a look at daily sentiment for the last year.
 
 ```python
 import matplotlib.pyplot as plt
@@ -121,6 +123,12 @@ plt.show()
 
 <img src="images/Daily Twitter sentiment.png?raw=true"/>
 
+Overall, sentiment towards Tesla remains quite positive. There are however three noticeable dips. The three days where sentiment becomes negative are 19 June 2018, 27 September 2018, and 26 February 2019. If search the news for Tesla on these dates we can find that all three coincide with some interesting events. 
+
+First, on the 19<sup>th</sup> of June, it came out that an employee had allegedly sabotaged the Tesla factory by making large code changes to Tesla's manufacturing system and sending large amounts of highly sensitive data to thrid parties. Even more interestingly, on the 27<sup>th</sup> of September, Tesla shares dropped 13% in value after Elon Musk was charged with fraud by the SEC (US Securities and Exchnage Commission). Finally, on the 26<sup>th</sup> of February, Musk found himself again in trouble with SEC after they claimed that one of his tweets violated a settlement agreement and asked the courts to hold him in contempt.
+
+Now both Tesla's sentiment and stock price quickly recovered after these incidents but it is interesting to see that there is some connection between sentiment from hashtagged tweets and news events and stock price movements. 
+
 ```python
 def overnight_sentiment(data):
     time_1 = data.index.indexer_between_time('00:00:00', '9:30:00')
@@ -134,7 +142,11 @@ def overnight_sentiment(data):
     sentiment['day'] = (sentiment['morning'] + sentiment['evening'].shift())/2
     
     return sentiment
-    
+```
+
+### 5. Calculating Realised Volatility
+
+```python
 def realised_volatility(data, end='10:00:00'):
     
     data.index = data['Dates']
@@ -282,8 +294,6 @@ model = ARIMA(endog=y, exog=X, order=(1,0,0))
 armax = model.fit(method='mle')
 print(arma`x.summary())
 ```
-
-h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x
 
 
 ### 6. Inference and Analysis
