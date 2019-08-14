@@ -156,10 +156,12 @@ Before moving on to the calculation of realised volatility, let's quickly go thr
 
 To calculate it, we first neet to calculate the log return of the stock as follows:
 
-   r<sub>t</sub> = log(P<sub>t</sub>) + log(P<sub>t-1</sub>)
+    r<sub>t</sub> = log(P<sub>t</sub>) + log(P<sub>t-1</sub>)
    
-   &sum;<sup>N</sup><sub>i=1</sub>
+   
+    RVar<sub>t</sub> = &sum;<sup>N</sup><sub>i=1</sub> r<sub>t</sub><sup>2</sup>
 
+    RV<sub>t</sub> = (RVar<sub>t</sub>)<sup>&frac12;</sup>
 
 ```python
 def realised_volatility(data, end='10:00:00'):
