@@ -190,7 +190,7 @@ def realised_volatility(data, end='10:00:00'):
     return data
 ```
 
-Next we use the function to calculate realised volatility for both TSLA and the S&P500 the first 30 minutes of each business day. Sentiment is also calculated with the *overnight_sentiment* function written before. After that we read in the data for the covariates and merge all of the data sets with inner joins. Finally, as sentiment is given as a score between -1 and 1, I've multiplied it by 100 so that the final result is slightly easier to interpret. 
+Next we use the function to calculate realised volatility for both TSLA and the S&P500 the first 30 minutes of each business day. Sentiment is also calculated with the *overnight_sentiment* function written before. After that, we read in the data for the covariates and merge all of the data sets with inner joins. Finally, as sentiment is given as a score between -1 and 1, I've multiplied it by 100 so that the final result is slightly easier to interpret. 
 
 ```python
 excel = pd.ExcelFile('Collated Opening 60.xlsx')
@@ -217,6 +217,7 @@ reg_data['Sentiment'] = reg_data['Sentiment']*100
 
 ### 6. Model Estimation
 
+Now we can move on to fitting the model. We can get a preliminary look at the difference between the realised volatility of TSLA and that of our benchmark, the S&P500, using the code below:
 
 ```python
 months = ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr']
@@ -234,6 +235,40 @@ plt.show()
 ```
 
 <img src="images/Realised volatility.png?raw=true"/>
+
+The data has a slight upward trend. But before we get to that, we should test for autocorrelation.
+
+**Ljung-Box test*
+
+We can check for autocorrelation using a Ljung-Box test. The Lgung-Box assumes a null hypothesis that the data is independently distributed, i.e. that there is not autocorrelation present. The alternative hypothesis is the data is not independently distributed and that it exibits autocorrelation. That is 
+
+<img src="images/Ljung_Box_test_hypotheses.png" width="200">
+
+```python
+from statsmodels.stats.diagnostic import acorr_ljungbox
+
+LB_test = acorr_ljungbox(y, lags=20)[1]
+
+fig, ax = plt.subplots(1,1, figsize = [16,5])
+
+ax.scatter(np.arange(1,21), LB_test, label = 'p-value')
+
+ax.set_title("Ljung-Box Test Results")
+ax.set_ylabel("Lag Order")
+ax.set_ylabel("p-value")
+ax.set_ylim([0,0.1])
+
+ax.hlines(0.05, 0, 20, linestyles='dashed', label = 'alpha')
+plt.legend()
+
+plt.show()
+```
+
+<img src="images/Realised volatility Ljung-Box test.png?raw=true"/>
+
+
+
+The time series has a slight upward trend and looks as though it may exhibit some non-stationarity as the variance looks to be increasing with time. First, we can remove the linear trend by simply fitting a simple linear regression and subtracting the residuals.
  
 ```python
 import statsmodels.api as sm
@@ -259,29 +294,8 @@ plt.show()
 
 <img src="images/Detrended realised volatility.png?raw=true"/>
 
-**Ljung-Box test*
+We can see the that
 
-```python
-from statsmodels.stats.diagnostic import acorr_ljungbox
-
-LB_test = acorr_ljungbox(y, lags=20)[1]
-
-fig, ax = plt.subplots(1,1, figsize = [16,5])
-
-ax.scatter(np.arange(1,21), LB_test, label = 'p-value')
-
-ax.set_title("Ljung-Box Test Results")
-ax.set_ylabel("Lag Order")
-ax.set_ylabel("p-value")
-ax.set_ylim([0,0.1])
-
-ax.hlines(0.05, 0, 20, linestyles='dashed', label = 'alpha')
-plt.legend()
-
-plt.show()
-```
-
-<img src="images/Realised volatility Ljung-Box test.png?raw=true"/>
 
 ```python
 from statsmodels.tsa.stattools import adfuller
