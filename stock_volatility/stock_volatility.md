@@ -238,11 +238,11 @@ plt.show()
 
 The data has a slight upward trend. But before we get to that, we should test for autocorrelation.
 
-**Ljung-Box test*
+We can check for autocorrelation using a Ljung-Box test. The Lgung-Box assumes a null hypothesis that the data is independently distributed, i.e. that there is not autocorrelation present. The alternative hypothesis is the data is not independently distributed and that it exibits autocorrelation. That is: 
 
-We can check for autocorrelation using a Ljung-Box test. The Lgung-Box assumes a null hypothesis that the data is independently distributed, i.e. that there is not autocorrelation present. The alternative hypothesis is the data is not independently distributed and that it exibits autocorrelation. That is 
+<img src="images/Ljung_Box_test_hypotheses.PNG" width="300">
 
-<img src="images/Ljung_Box_test_hypotheses.PNG" width="200">
+Using the following code, I've run the test 20 times from lag of 1 to lag of 20.
 
 ```python
 from statsmodels.stats.diagnostic import acorr_ljungbox
@@ -266,9 +266,7 @@ plt.show()
 
 <img src="images/Realised volatility Ljung-Box test.png?raw=true"/>
 
-
-
-The time series has a slight upward trend and looks as though it may exhibit some non-stationarity as the variance looks to be increasing with time. First, we can remove the linear trend by simply fitting a simple linear regression and subtracting the residuals.
+The test quite clearly rejects the null hypothesis at all lags that the data is independent. Therefore, we have detected some autocorrelation, which indicates that some sort of autoregressive model could be used. To ARMA (autoregressive moving average) models, we need data that is stationary. We saw before that the time series has an upward trend and it looks as though it may exhibit some non-stationarity as the variance looks to be increasing with time. First, we can remove the linear trend by simply fitting a simple linear regression and subtracting the residuals.
  
 ```python
 import statsmodels.api as sm
@@ -294,7 +292,7 @@ plt.show()
 
 <img src="images/Detrended realised volatility.png?raw=true"/>
 
-We can see the that
+We can see that the data now exhibits the linear upward trend no more. The next thing to do is to test for non-stationarity. The test that allows us to do this is called the augmented Dickey-Fuller test. This tests the null hypothesis that the time series has a unit root, which is present if the autocorrelation equals 1. The time series is non-stationary in this case. The alternate hypothesis is that the time series is stationary.
 
 
 ```python
@@ -304,7 +302,11 @@ unit_root_test = adfuller(detrended_y)
 unit_root_test[1]
 ```
 
+With a p value of 0.0003 we reject the null hypothesis of the presence of a unit root. Thus, we can say that the series is stationary.
 
+With these tests done, we are now ready to build our model. Here I am using the ARIMA model function from statsmodel's time series analysis package. The ARIMA model is made up of an autoregressive component, an integrated component (only necessary for non-stationary series), and an moving average component. As our series is stationary, the order of the integrated component is 0 and we are left with what is called an ARMA model. 
+
+In order to find the optimal order of an ARMA model there are techniques that involve looking at the plots of the time series' autocorrelation function, but the most accurate way is just to fit models at a range of different orders and then choose the model that best fits the data. The following code performs this search.
 
 ```python
 from statsmodels.tsa.arima_model import ARIMA
@@ -321,10 +323,16 @@ for p in range(0,P):
         X = reg_data[['Sentiment', 'Press Release','Google trends']]
         model = ARIMA(endog=y, exog=X, order=(p,0,q))
         arma = model.fit(method='mle')
-        aic.iloc[p,q] = round(arma.aic,3)
-        
+        aic.iloc[p,q] = round(arma.aic,3)     
 aic
 ```
+
+Order | MA(0)   | MA(1)
+------|---------|-------
+**AR(0)** | 967.350 | 963.332
+**AR(1)** | 962.685	| 964.681
+**AR(2)** | 964.676	| 966.433
+
 
 ```python
 y = detrended_y 
