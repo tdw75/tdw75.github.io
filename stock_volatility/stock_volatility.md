@@ -234,7 +234,7 @@ plt.show()
 ```
 
 <img src="images/Realised volatility.png?raw=true"/>
-
+ 
 ```python
 import statsmodels.api as sm
 
