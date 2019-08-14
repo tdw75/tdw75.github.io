@@ -166,7 +166,7 @@ Then realised variance is calculated by sum all of the squared log returns in th
 
 Finally, realised volatility is the square root of realised variance:
 
-<img src="images/Realised_volatility_formula.png" width="140">
+<img src="images/Realised_volatility_formula.png" width="135">
 
 This process is implemented with the following function:
 
