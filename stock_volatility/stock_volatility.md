@@ -343,8 +343,12 @@ armax = model.fit(method='mle')
 print(arma`x.summary())
 ```
 
-<img src="images/ARMAX-summary.PNG?raw=true"/>
+<img src="images/ARMAX_summary.PNG?raw=true"/>
 
 ### 7. Inference and Analysis
 
+As can be seen from the output above, we have found that sentiment has a significant effect at the 5% level on the realised volatility of Tesla stock within the first 30 minutes of trading, after accounting for a baseline of market volatility as measured by the S&P 500 Index. 
 
+More specifically, a one unit increase in positive overnight sentiment is associated with a 0.77 unit decrease in the volatility difference between Tesla stock and the wider US market. This information can help inform short-term trading strategies. While I am not an expert in finance or trading, somebody who is more informed that I am can profit off the volatility of the stock by buying the right portfolio of options or identifying a profitable time to sell the stock should they be able to predict the stock's volaitility.
+
+To conclude, we have shown that overnight sentiment can indicate volatility of Tesla stock the next day when trading begins. The effect shows that as sentiment becomes more positive, volatility decreases. This can also be seen empirically, where large declines in public sentiment on Twitter have coincided with large falls in the Tesla's stock price. Such information can be useful for short-term traders who can profit off the volatility of the stock if they are able to predict it in advance. 
