@@ -340,7 +340,7 @@ y = detrended_y
 X = reg_data[['Sentiment', 'Press Release','Google trends']]
 model = ARIMA(endog=y, exog=X, order=(1,0,0))
 armax = model.fit(method='mle')
-print(arma`x.summary())
+print(armax.summary())
 ```
 
 <img src="images/ARMAX_summary.PNG?raw=true"/>
