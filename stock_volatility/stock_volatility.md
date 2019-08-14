@@ -158,15 +158,15 @@ Before moving on to the calculation of realised volatility, let's quickly go thr
 
 To calculate it, we first need to calculate the log return of the stock as follows:
 
-<img src="images/Log_return_formula.PNG" width="160">    
+<img src="images/Log_return_formula.PNG" width="170">    
 
 Then realised variance is calculated by sum all of the squared log returns in the relevant time frame:
 
-<img src="images/Realised_variance_formula.PNG" width="150">
+<img src="images/Realised_variance_formula.PNG" width="140">
 
 Finally, realised volatility is the square root of realised variance:
 
-<img src="images/Realised_volatility_formula.png" width="150">
+<img src="images/Realised_volatility_formula.png" width="140">
 
 This process is implemented with the following function:
 
