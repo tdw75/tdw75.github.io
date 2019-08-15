@@ -22,7 +22,7 @@ With a number of very similar independent variables in the dataset, high multico
 
 <img src="images/Correlation_matrix.png?raw=true"/>
 
-As seen above, the review scores display a high positive correlation. This is logical, one would expect that a listing that is reviewed highly in one area would often also score highly in others. Additionally, review_score_rating is an aggregation of the rest of the scores; this implies perfect multicollinearity, which would need to be addressed through feature engineering. 
+As seen above, the review scores display a relatively high positive correlation. This is logical, one would expect that a listing that is reviewed highly in one area would often also score highly in others. Additionally, review_score_rating is an aggregation of the rest of the scores; this implies perfect multicollinearity, which would need to be addressed through feature engineering. 
 
 Variables to do with the size of the property (accomodates, bedrooms, bathrooms, beds, security_deposit, and cleaning_fee) are also highly correlated.
 
