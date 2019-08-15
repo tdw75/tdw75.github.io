@@ -49,12 +49,6 @@ Sydney, Australia | Feb 2019 - May 2019
 *Summer Analyst*  
 Sydney, Australia | Dec 2018 - Feb 2019
 
-### 180 Degrees Consulting  
-
-*Pro Bono Strategy Consultant*  
-Sydney, Australia | Aug 2018 - Nov 2018  
-Berlin, Germany | Nov 2017 - Apr 2018 
-
 ### Organisation for Economic Cooperation and Development  
 
 *Statistics Intern*  
