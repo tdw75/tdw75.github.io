@@ -349,16 +349,18 @@ print(armax.summary())
 
 As can be seen from the output above, we have found that sentiment has a significant effect at the 5% level on the realised volatility of Tesla stock within the first 30 minutes of trading, after accounting for a baseline of market volatility as measured by the S&P 500 Index. 
 
-More specifically, a one unit increase in positive overnight sentiment is associated with a 0.77 unit decrease in the volatility difference between Tesla stock and the wider US market. This information can help inform short-term trading strategies. I am defintely not an expert in finance or trading and the financial analysis here is relatively simple. But somebody who is more finance-savvy than I am could build upon this analysis to profit off the volatility of the stock by buying the right portfolio of options or identifying a profitable time to sell the stock should they be able to predict the stock's volaitility.
+More specifically, we can see that a one unit increase in positive overnight sentiment is associated with a 0.77 unit decrease in the volatility difference between Tesla stock and the wider US market. This makes sense, as you would expect large sell offs and wild swings in price to occur when sentiment toward a company is negative.
 
-To conclude, we have shown that overnight sentiment can indicate volatility of Tesla stock the next day when trading begins. The effect shows that as sentiment becomes more positive, volatility decreases. This can also be seen empirically, where large declines in public sentiment on Twitter have coincided with large falls in the Tesla's stock price. This information is not only interesting, by enxtending this analyis it could also be useful for short-term traders seeking to profit off the volatility of the stock. 
+This information can help inform short-term trading strategies. I am defintely not an expert in finance or trading and the financial analysis here is relatively simple. But somebody who is more finance-savvy than I am could build upon this analysis to profit off the volatility of the stock by buying the right portfolio of options or identifying a profitable time to sell the stock should they be able to predict the stock's volaitility.
+
+To conclude, we have shown that overnight sentiment can indicate volatility of Tesla stock the next day when trading begins. The effect shows that as sentiment becomes more positive, volatility decreases, and vice versa. This can also be seen empirically, where large declines in public sentiment on Twitter have coincided with large falls in the Tesla's stock price. This information is not only interesting, by enxtending this analyis it could also be useful for short-term traders seeking to profit off the volatility of the stock. 
 
 ### References
 
 Hutto, C. and Gilbert, E. (2014). ‘VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text’, Eighth International Conference on Weblogs and Social Media (ICWSM-14). Ann Arbor, MI, June 2014.
 
 
-Tesla News Reports  
+**Tesla News Reports**  
 19 June 2018: [Elon Musk accuses employee of sabotage](https://www.nytimes.com/2018/06/19/business/elon-musk-tesla-employee-sabotage.html)  
 27 September 2018: [Tesla shares lose 13% after SEC charges](https://www.cnbc.com/2018/09/27/tesla-shares-after-sec-charges-ceo-elon-musk-with-fraud.html)   
 26 February 2019: [SEC asks that Elon Musk be held in contempt](https://www.bbc.com/news/business-47365585)
