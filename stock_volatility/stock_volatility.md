@@ -359,6 +359,6 @@ Hutto, C. and Gilbert, E. (2014). ‘VADER: A Parsimonious Rule-based Model for 
 
 
 Tesla News Reports  
-19 June 2018: Elon Musk accuses employee of sabotage - https://www.nytimes.com/2018/06/19/business/elon-musk-tesla-employee-sabotage.html  
-27 September 2018: Tesla shares lose 13% after SEC charges - https://www.cnbc.com/2018/09/27/tesla-shares-after-sec-charges-ceo-elon-musk-with-fraud.html  
-26 February 2019: SEC asks that Elon Musk be held in contempt - https://www.bbc.com/news/business-47365585
+19 June 2018: [Elon Musk accuses employee of sabotage](https://www.nytimes.com/2018/06/19/business/elon-musk-tesla-employee-sabotage.html)  
+27 September 2018: [Tesla shares lose 13% after SEC charges](https://www.cnbc.com/2018/09/27/tesla-shares-after-sec-charges-ceo-elon-musk-with-fraud.html)   
+26 February 2019: [SEC asks that Elon Musk be held in contempt](https://www.bbc.com/news/business-47365585)
