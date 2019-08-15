@@ -358,7 +358,7 @@ To conclude, we have shown that overnight sentiment can indicate volatility of T
 Hutto, C. and Gilbert, E. (2014). ‘VADER: A Parsimonious Rule-based Model for Sentiment Analysis of Social Media Text’, Eighth International Conference on Weblogs and Social Media (ICWSM-14). Ann Arbor, MI, June 2014.
 
 
-Tesla News Reports
-19 June 2018: Elon Musk accuses employee of sabotage - https://www.nytimes.com/2018/06/19/business/elon-musk-tesla-employee-sabotage.html
-27 September 2018: Tesla shares lose 13% after SEC charges - https://www.cnbc.com/2018/09/27/tesla-shares-after-sec-charges-ceo-elon-musk-with-fraud.html
+Tesla News Reports  
+19 June 2018: Elon Musk accuses employee of sabotage - https://www.nytimes.com/2018/06/19/business/elon-musk-tesla-employee-sabotage.html  
+27 September 2018: Tesla shares lose 13% after SEC charges - https://www.cnbc.com/2018/09/27/tesla-shares-after-sec-charges-ceo-elon-musk-with-fraud.html  
 26 February 2019: SEC asks that Elon Musk be held in contempt - https://www.bbc.com/news/business-47365585
