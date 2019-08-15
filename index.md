@@ -13,7 +13,7 @@
 <a name="projects"></a>
 ## Data Projects 
 
-- [Analysing the Effect of Company Sentiment on Stock Price Volatility (In Progress)](/stock_volatility/stock_volatility.md)
+- [Can Twitter Give an Insight into the Stock Market? - Analysing the Effect of Company Sentiment on Stock Price Volatility (In Progress)](/stock_volatility/stock_volatility.md)
 - [Building a Pricing Recommendation System for AirBnB Listings](/airbnb_pricing/airbnb_pricing.md)
 
 ---
