@@ -13,7 +13,7 @@
 ## Data Projects 
 
 - [Can Twitter help us understand the stock market? - Analysing the effect of company sentiment on stock price volatility](/stock_volatility/stock_volatility.md)
-- [What determines the price of an AirBnB listing? - Building a pricing recommendation system for AirBnB listings in Melbourne](/airbnb_pricing/airbnb_pricing.md)
+- [What is the optimal price for an AirBnB listing? - Building a pricing recommendation system for AirBnB listings in Melbourne](/airbnb_pricing/airbnb_pricing.md)
 - [Spurious regression (Coming Soon)](/spurious_regression/spurious_regression.md)
 
 ---
