@@ -3,26 +3,18 @@
 ## Table of Contents
 
 1. [Data Projects](#projects)
-2. [Blog Posts](#posts)
-3. [Education](#education)
-4. [Experience](#experience)
-5. [Skills](#skills)
+2. [Education](#education)
+3. [Experience](#experience)
+4. [Skills](#skills)
 
 ---
 
 <a name="projects"></a>
 ## Data Projects 
 
-- [Can Twitter Give an Insight into the Stock Market? - Analysing the Effect of Company Sentiment on Stock Price Volatility](/stock_volatility/stock_volatility.md)
-- [What Determines the Price of an AirBnB Listing? - Building a Pricing Recommendation System for AirBnB in Melbourne](/airbnb_pricing/airbnb_pricing.md)
-
----
-
-<a name="posts"></a>
-## Blog Posts 
-
-- [Consistency, Efficiency, and Mean Squared Error (Coming Soon)](/consistency/consistency.md)
-- [Spurious Regression (Coming Soon)](/spurious_regression/spurious_regression.md)
+- [Can Twitter help us understand the stock market? - Analysing the effect of company sentiment on stock price volatility](/stock_volatility/stock_volatility.md)
+- [What determines the price of an AirBnB listing? - Building a pricing recommendation system for AirBnB in Melbourne](/airbnb_pricing/airbnb_pricing.md)
+- [Spurious regression (Coming Soon)](/spurious_regression/spurious_regression.md)
 
 ---
 
