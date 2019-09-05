@@ -99,7 +99,7 @@ The algorithm is called VADER Sentiment Analysis and has a convenient implementi
 There was an academic paper (referenced below) written on the development of the algorithm that showed it produced very successful results. The implementation is as follows: 
 
 ```python
-import nltk.sentiment.sentiment_analyzer import SentimentIntensityAnalyzer
+import nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 analyser = SentimentIntensityAnalyzer()
 scores = pd.DataFrame(tweets['text'].apply(analyser.polarity_scores))
