@@ -100,6 +100,8 @@ There was an academic paper (referenced below) written on the development of the
 
 ```python
 import nltk.sentiment.vader import SentimentIntensityAnalyzer
+import nltk
+nltk.download('vader_lexicon')
 
 analyser = SentimentIntensityAnalyzer()
 scores = pd.DataFrame(tweets['text'].apply(analyser.polarity_scores))
