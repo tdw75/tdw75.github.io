@@ -14,7 +14,7 @@
 
 - [Can Twitter help us understand the stock market? - Analysing the effect of company sentiment on stock price volatility](/stock_volatility/stock_volatility.md)
 - [What is the optimal price for an AirBnB listing? - Building a pricing recommendation system for AirBnB listings in Melbourne](/airbnb_pricing/airbnb_pricing.md)
-- [Spurious regression (Coming Soon)](/)
+- [Is the ABC (Australian Broadcasting Corporation) politically biased? (Coming Soon)](/)
 
 ---
 
@@ -69,7 +69,7 @@ Siem Reap, Cambodia |  Jun 2016 - Jul 2016
 
 ### Statistics and Econometrics
 - Regression
-  - Classic linear regression, generalised linear models, regularisation methods, nonlinear regression
+  - Classic linear regression, generalised linear models, regularisation methods, nonlinear modelling
 - Financial econometrics
   - Linear time series analysis (ARIMAX), volatility modelling (ARCH/GARCH), high frequency and continuous time models, option pricing, value-at-Risk
 - Simulation and Monte Carlo methods
