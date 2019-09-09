@@ -45,3 +45,7 @@ The next analysis is with TextBlob. Each headline was again given a sentiment sc
 Here we can see that there are far more neutral classifications that with the VADER analysis. This could indicate that the algorithm struggled to identify polarity compared to VADER or that it merely categorises polarity less strongly. My goal here isn't to compare the performance or accuracy between the two algorithms, rather to see if they detect any differences between the reporting of the two major parties. So I will leave discussions about which sentiment analysis tool is better for another time.
 
 ### Two Sample Hypothesis Test
+
+<img src="images/vader_proportions_test.png?raw=true"/>
+
+<img src="images/textblob_proportions_test.png?raw=true"/>
