@@ -38,11 +38,11 @@ After running the VADER sentiment analysis on each headline within the two group
 
 We can see here that almost half of the headlines were classified as neutral. This is to be expected given the ABC's mandate of impartial reporting. The distribution between the two parties is roughly the same. There were slightly more neutral headlines for Labor and slightly more positive ones for the Coalition. We'll check if these differences are statistically significant later. 
 
-The next analysis is with TextBlob. Each headline was again given a sentiment score between -1 and 1 and I categorised them in the saem way as above, which resulted in the following distribution:
+The next analysis is with TextBlob. Each headline was again given a sentiment score between -1 and 1 and I categorised them in the same way as above, which resulted in the following distribution:
 
 <img src="images/textblob_sentiment_results.png?raw=true"/>
 
-Here we can see that there are far more neutral classifications that with the VADER analysis. This could indicate that the algorithm struggled to identify polarity compared to VADER or that it merely categorises polarity less strongly. My goal here isn't to compare the performance or accuracy between the two algorithms, rather to see if they detect any differences between the reporting of the two major parties. So I will leave discussions about which sentiment analysis tool is better for another time.
+Here we can see that there are far more neutral classifications than with the VADER analysis. This could indicate that the algorithm struggled to identify polarity compared to VADER or that it merely categorises polarity less strongly. My goal here isn't to compare the performance or accuracy between the two algorithms, rather to see if they detect any differences between the reporting of the two major parties. So I will leave discussions about which sentiment analysis tool is better for another time.
 
 ### Two Sample Hypothesis Test
 
