@@ -4,7 +4,7 @@ Many non-Australians may not know this, but Australia's media (particularly prin
 
 For those that are unfamilar with Australian politics, we have two major parties - the centre-left Australian Labor Party (note the different spelling of 'labour') and the conservative Coalition, comprised of the (ironically named) Liberal Party and the National Party. The dataset I used was one containing the headlines of every ABC news article from 19 February 2003 until 31 December 2017. My thinking was that by comparing news articles about the two major parties I could gain an insight into how the ABC reports on each party. The dataset contains 1,103,663 different headlines, an average of roughly 190 per day. The series below shows the volume of articles throughout the time period with markers at each election and change of prime minister. 
 
-*******
+<img src="images/monthly_article_volume.png?raw=true"/>
 
 We can see...
 
@@ -29,9 +29,10 @@ The selection resulted in 17,389 articles about Labor and 15,626 about the Coali
 
 After running the VADER sentiment analysis on each headline within the two groups, I received a sentiment score between -1 and 1 for each. Rather than just leaving this at a numerical score, I categorised them into very negative (score<-0.5), negative (-0.5>score>0), neutral (score=0), positive (0>score>0.5), and very positive (score>0.5). This gave the following distribution:
 
-
+<img src="images/vader_sentiment_results.png?raw=true"/>
 
 ### TextBlob Sentiment Analysis
 
 The next analysis is with TextBlob. Each headline was again given a sentiment score between -1 and 1 and I categorised them in the saem way as above, which resulted in the following distribution:
 
+<img src="images/textblob_sentiment_results.png?raw=true"/>
