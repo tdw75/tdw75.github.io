@@ -14,7 +14,7 @@
 
 - [Can Twitter help us understand the stock market? - Analysing the effect of company sentiment on stock price volatility](/stock_volatility/stock_volatility.md)
 - [What is the optimal price for an AirBnB listing? - Building a pricing recommendation system for AirBnB listings in Melbourne](/airbnb_pricing/airbnb_pricing.md)
-- [Is the ABC (Australian Broadcasting Corporation) politically biased? (Coming Soon)]](/abc_news/abc_news_analysis.md)
+- [Is the ABC (Australian Broadcasting Corporation) politically biased? (Coming Soon)](/abc_news/abc_news_analysis.md)
 
 ---
 
