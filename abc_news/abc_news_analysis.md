@@ -8,21 +8,22 @@ For those that are unfamilar with Australian politics, we have two major parties
 
 We can see...
 
-New let's move onto analysing the headliens concerning each party. The plan is to extract all of the articles about Labor and Coalition and compare how positive or negative the coverage of each party is to see if the parties are treated differently. Particularly in the era of clickbait journalism, a headline may not always be completely align with the content of article. However, as the headline is the first (and sometimes only) thing that people read, it plays a major role in shaping public opinion about the subject of the article. So while an analysis of the complete text of the articles may give a more comprehensive view of any bias, the headlines alone will still give us a good insight into XXXXX, especially considering the large amount of data.
+New let's move onto analysing the headlines concerning each party. The plan is to extract all of the articles about Labor and Coalition and compare how positive or negative the coverage of each party is to see if the parties are treated differently. Particularly in the era of clickbait journalism, a headline may not always be completely align with the content of article. However, as the headline is the first (and sometimes only) thing that people read, it plays a major role in shaping public opinion about the subject of the article. So while an analysis of the complete text of the articles may give a more comprehensive view of any bias, the headlines alone will still give us a good insight into XXXXX, especially considering the large amount of data.
 
 To accomplish this task I will be running a sentiment analysis on each of the headlines. There are two algorithms I am using here. The first is the VADER sentiment analysis in the NLTK module in Python. VADER was originally designed for short social media posts for which its performance was shown to be very good during academic research. Given that news headlines are similarly short, it should also perform quite well here. The second is the sentiment analysis tool in the textblob Python module. This takes a different approach using a Naïve Bayes classifier that has been trained on a large dataset of XXXXXXX.
 
 To extract the Labor and Coalition news headlines I selected all of the articles that contained the following key words:  
+
 For Labor:  
 - References to the party (Labor, ALP)
 - Surnames of party leaders (Crean, Latham, Beazley, Rudd, Gillard, Shorten)
-- Surnames of selected important ministers and treasurers (Swan, Bowen)
-For the Coalition:  
+- Surnames of selected important ministers and treasurers (Swan, Bowen)  
+For the Coalition:   
 - References to the party (Coalition, LNP, Liberals, National Party, Liberal Party, Libs)
 - Surnames of party leaders (Howard, Nelson, Turnbull, Abbott)
 - Surnames of selected important ministers and treasurers (Costello, Morrison, Joyce)
 
-This is clearly not an exhaustive list of all references to each party but it will definitely cover the vast majority. The selection resulted in 17,389 articles about Labor and 15,626 about the Coalition.
+The selection resulted in 17,389 articles about Labor and 15,626 about the Coalition. And while this is most likely not an exhaustive list of all references to each party, it will definitely cover the vast majority. 
 
 ### VADER Sentiment Analysis
 
