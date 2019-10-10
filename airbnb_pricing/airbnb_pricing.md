@@ -16,7 +16,7 @@ The heavy right skew and presence of outliers are typical of price data such as 
 
 Of the independent variables, six were categorical, and would thus require further feature engineering in order to be useable. Additonally, latitude and longitude offer no information in their current state; further processing would be required to derive useful insights. A pairwise comparison of each (numerical) independent variable with respect to the price/log price revealed that the majority of variables do not share a linear relationship with the target variable.
 
-<img src="images/Pairwise_comparisons.png.png?raw=true"/>
+<img src="images/Pairwise_comparisons.png?raw=true"/>
 
 With a number of very similar independent variables in the dataset, high multicollinearity was likely to pose a problem. The correlation between each feature was examined through a correlation matrix to better understand the underlying relationships that exist within the dataset.
 
