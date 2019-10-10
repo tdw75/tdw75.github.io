@@ -1,6 +1,6 @@
 ## A statistical machine learning based pricing recommendation system for Airbnb listings in Melbourne
 
-**Project description:** This project was completed as an assessment piece for a machine learning and data mining unit at the University of Sydney. For this  assignment, we were given a data set of AirBnB listings in Melbourne and were tasked with using statistical learning methods to build a pricing recommendation system. The data was given in two parts, a labelled train set and an unlabelled test set. The models were evaluated through Kaggle, where they were run on the complete, labelled test set. The project gave me a good opportunity to work with a data set that required a fair bit of data wrangling and feature engingeering and to then implement a variety of machine learning algorithms in Python.
+**Project description:** This project was completed as an assessment piece for a machine learning and data mining unit at the University of Sydney. For this assignment, we were given a data set of AirBnB listings in Melbourne and were tasked with using statistical learning methods to build a pricing recommendation system. The data was given in two parts, a labelled train set and an unlabelled test set. The models were evaluated through Kaggle, where they were run on the complete, labelled test set. The project gave me a good opportunity to work with a data set that required a fair bit of data wrangling and feature engingeering and to then implement a variety of machine learning algorithms in Python.
 
 A description of the train set can be found in the appendix.
 
@@ -16,7 +16,7 @@ The heavy right skew and presence of outliers are typical of price data such as 
 
 Of the independent variables, six were categorical, and would thus require further feature engineering in order to be useable. Additonally, latitude and longitude offer no information in their current state; further processing would be required to derive useful insights. A pairwise comparison of each (numerical) independent variable with respect to the price/log price revealed that the majority of variables do not share a linear relationship with the target variable.
 
-<img src="images/______.png?raw=true"/>
+<img src="images/Pairwise_comparisons.png.png?raw=true"/>
 
 With a number of very similar independent variables in the dataset, high multicollinearity was likely to pose a problem. The correlation between each feature was examined through a correlation matrix to better understand the underlying relationships that exist within the dataset.
 
@@ -24,9 +24,7 @@ With a number of very similar independent variables in the dataset, high multico
 
 As seen above, the review scores display a relatively high positive correlation. This is logical, one would expect that a listing that is reviewed highly in one area would often also score highly in others. Additionally, review_score_rating is an aggregation of the rest of the scores; this implies perfect multicollinearity, which would need to be addressed through feature engineering. 
 
-Variables to do with the size of the property (accomodates, bedrooms, bathrooms, beds, security_deposit, and cleaning_fee) are also highly correlated.
-
-Based off the insights gained from the EDA, a pretty obvious hypothesise would be that due to the non-linearity and relatively high dimensionality of the data, linear models could struggle to capture the various relationships between the variables and would therefore perform poorly during prediction. Instead, non-linear methods would likely be superior in this case. The hypothesis is challenged and tested during the model estimation process.
+Based off the insights gained from the EDA, a fairly obvious hypothesis would be that due to the non-linearity and relatively high dimensionality of the data, linear models could struggle to capture the various relationships between the variables and would therefore perform poorly during prediction. Instead, non-linear methods would likely be superior in this case. The hypothesis is challenged and tested during the model estimation process.
 
 ### 2. Data Cleaning, Processing, and Wrangling
 
@@ -34,7 +32,7 @@ As seen in the dataset description, there were a number of variables with missin
 
 There are a number of ways to approach data imputation. As a basic level, you can just replace the missing values with some measure of central tendency (mean, median, etc.). For time series data, something like linear interpolation is popular. Then there is also the possibilty to create a model to predict the missing values, and then use these predicted values in the estimation of the target variable.
 
-In our case, there are three variables (bedrooms, bathrooms, and beds) that have a trival number of missing values (<7). Here, it makes sense just to impute the missing values with the respective median. That leaves ten variables with missing values - security_deposit, cleaning_fee, reviews_per_month and each of the seven review metrics - each with more than 1,000. Given the large number of missing values, filling them all with the same value is less likely to produce good predictions. However, we can try to predict them instead. After a bit of research, I found that K Nearest Neighbours (KNN) is a popular method for data imputation due to ease of implementation and relatively good results.
+In our case, there are three variables (bedrooms, bathrooms, and beds) that have a trival number of missing values (<7). Here, it makes sense just to impute the missing values with the respective median. That leaves ten variables with missing values - security_deposit, cleaning_fee, reviews_per_month and each of the seven review metrics - each with more than 1,000. Given the large number of missing values, filling them all with the same value is less likely to produce good predictions. However, we can try to predict them instead, K Nearest Neighbours (KNN) is a popular method for data imputation due to ease of implementation and relatively good results.
 
 The underlying rationale for KNN imputation is that a point value can be approximated by using the values of the points that are closest to it, based on the other features within the data set (excluding the features that are missing large portions of data themselves). This method only requires the specification of the number of nearest neighbours (a ‘k’ value), and a distance metric. In the first instance, 5-fold cross-validation was used (taking computational cost into consideration) to determine an optimal k value of 17. Another important consideration is that due to the sheer volume of missing data entries, and the high dimensionality of the data, many missing values would not have enough neighbours to deliver reliable predictions. To account for this, if more than 50% of the nearest neighbours had missing values in the column of interest, the observation was left unfilled. 
 
