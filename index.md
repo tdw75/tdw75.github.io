@@ -1,8 +1,6 @@
-# Data Science Portfolio
-
 ## Table of Contents
 
-1. [Data Projects](#projects)
+1. [Projects](#projects)
 2. [Education](#education)
 3. [Experience](#experience)
 4. [Skills](#skills)
@@ -10,11 +8,13 @@
 ---
 
 <a name="projects"></a>
-## Data Projects 
+## Projects 
 
+- [Self-written algorithms for discrete optimisation problems]
 - [Can Twitter help us understand the stock market? - Analysing the effect of company sentiment on stock price volatility](/stock_volatility/stock_volatility.md)
 - [What is the optimal price for an AirBnB listing? - Building a pricing recommendation system for AirBnB listings in Melbourne](/airbnb_pricing/airbnb_pricing.md)
 - [Is the ABC (Australian Broadcasting Corporation) politically biased? (In Progress)](/abc_news/abc_news_analysis.md)
+
 
 ---
 
@@ -28,7 +28,7 @@
 
 ### Technical University of Berlin \| Sep 2017 - Aug 2018
 
-*Exchange Year in Wirtschaftsmathematik (Business Mathematics)*
+*Exchange Program in Econometrics
 
 ### SciencePo, Paris \| Jul 2017
 
@@ -38,6 +38,11 @@
 
 <a name="experience"></a>
 ## Experience 
+
+### CleverShuttle
+
+*Data Science Algorithms Intern*   
+Berlin, Germany | Oct 2019 - Apr 2020
 
 ### Nous Group  
 
@@ -76,8 +81,8 @@ Siem Reap, Cambodia |  Jun 2016 - Jul 2016
   - Bootstrap, Monte Carlo integration, Monte Carlo hypothesis tests
 
 ### Operations Research
-- Mathematical optimisation
-  - Linear programming, integer programming, nonlinear programming, network optimisation, dynamic programming
+- Optimisation
+  - Linear programming, mixed integer programming, nonlinear programming, constraint programming, local search methods, dynamic programming
 - Decision making
   - Decision trees, Monte Carlo simulations, game theory
 
@@ -92,7 +97,7 @@ Siem Reap, Cambodia |  Jun 2016 - Jul 2016
 
 ### Software
 - Python
-  - NumPy, pandas, SciPy, matplotlib, seaborn, GeoPy, statsmodels, sklearn, XGBoost, LightGBM, nltk, Keras, arch, Gurobi
+  - NumPy, pandas, SciPy, matplotlib, seaborn, Plotly, statsmodels, sklearn, XGBoost, nltk, Keras, arch, Gurobi, OR Tools
 - SQL
 - R
 - Microsoft Office
