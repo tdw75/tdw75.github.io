@@ -10,4 +10,4 @@ Here is a collection of algorithms that I have written to solve various combinat
 #### Travelling Salesman Problem
 
 - [GitHub repository](https://github.com/tdw75/travelling-salesman-problem)
-- [Jupyter Notebook (in progress)](https://github.com/tdw75/travelling-salesman-problem/blob/master/tsp_solvers.ipynb)
+- [Jupyter Notebook](https://github.com/tdw75/travelling-salesman-problem/blob/master/tsp_solvers.ipynb)
