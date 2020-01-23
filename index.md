@@ -10,9 +10,9 @@
 <a name="projects"></a>
 ## Projects 
 
-- [Python implementation of algorithms to solve various combinatorial optimisation problems](/optimisation_problems.md)
-- [Can Twitter help us understand the stock market? - Analysing the effect of company sentiment on stock price volatility](/stock_volatility/stock_volatility.md)
-- [What is the optimal price for an AirBnB listing? - Building a pricing recommendation system for AirBnB listings in Melbourne](/airbnb_pricing/airbnb_pricing.md)
+- [Self written algorithms to solve various combinatorial optimisation problems](/optimisation_problems.md)
+- [An analysis the effect of company sentiment on stock price volatility](/stock_volatility/stock_volatility.md)
+- [Building a pricing recommendation system for AirBnB listings in Melbourne](/airbnb_pricing/airbnb_pricing.md)
 
 
 ---
@@ -96,7 +96,7 @@ Siem Reap, Cambodia |  Jun 2016 - Jul 2016
 
 ### Software
 - Python
-  - NumPy, pandas, SciPy, matplotlib, seaborn, Plotly, statsmodels, sklearn, XGBoost, nltk, Keras, arch, Gurobi, OR Tools
+  - NumPy, pandas, SciPy, matplotlib, seaborn, plotly, statsmodels, sklearn, XGBoost, LightGBM, nltk, Keras, arch, Gurobi, OR Tools
 - SQL
 - R
 - Microsoft Office
