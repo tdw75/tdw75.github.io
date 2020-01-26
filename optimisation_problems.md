@@ -5,9 +5,9 @@ Here is a collection of algorithms that I have written to solve various combinat
 #### Knapsack problem
 
 - [GitHub repository](https://github.com/tdw75/knapsack-problem/tree/master)
-- [Jupyter Notebook](https://github.com/tdw75/knapsack-problem/blob/master/knapsack_problem_solvers.ipynb)
+- [Jupyter Notebook](https://nbviewer.jupyter.org/github/tdw75/knapsack-problem/blob/master/knapsack_problem_solvers.ipynb)
 
 #### Travelling Salesman Problem
 
 - [GitHub repository](https://github.com/tdw75/travelling-salesman-problem)
-- [Jupyter Notebook](https://github.com/tdw75/travelling-salesman-problem/blob/master/tsp_solvers.ipynb)
+- [Jupyter Notebook](https://nbviewer.jupyter.org/github/tdw75/travelling-salesman-problem/blob/master/tsp_solvers.ipynb)
