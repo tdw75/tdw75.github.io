@@ -40,8 +40,11 @@
 
 ### CleverShuttle
 
-*Data Science Algorithms Intern*   
-Berlin, Germany | Oct 2019 - Apr 2020
+*Algorithm Engineer*   
+Berlin, Germany | Feb 2020 - Present
+
+*Algorithm Engineering Intern*   
+Berlin, Germany | Oct 2019 - Feb 2020
 
 ### Nous Group  
 
@@ -66,46 +69,4 @@ Siem Reap, Cambodia |  Dec 2016 - Mar 2017
 *Project Team Member*  
 Siem Reap, Cambodia |  Jun 2016 - Jul 2016
 
----
 
-<a name="skills"></a>
-## Skills 
-
-### Statistics and Econometrics
-- Regression
-  - Classic linear regression, generalised linear models, regularisation methods, nonlinear modelling
-- Financial econometrics
-  - Linear time series analysis (ARIMAX), volatility modelling (ARCH/GARCH), high frequency and continuous time models, option pricing, value-at-Risk
-- Simulation and Monte Carlo methods
-  - Bootstrap, Monte Carlo integration, Monte Carlo hypothesis tests
-
-### Operations Research
-- Optimisation
-  - Linear programming, mixed integer programming, nonlinear programming, constraint programming, local search methods, dynamic programming
-- Decision making
-  - Decision trees, Monte Carlo simulations, game theory
-
-### Machine Learning
-- Classification
-  - K nearest neighbours, logistic regression, naïve Bayes classifier, support vector machines, Gaussian discriminant analysis, decision trees
-- Ensemble methods
-  - Random forests, bagging, boosting, model stacking
-- Unsupervised Learning
-  - Principal componnents analysis, clustering (K-means, etc.)
-- Deep neural networks
-
-### Software
-- Python
-  - NumPy, pandas, SciPy, matplotlib, seaborn, plotly, statsmodels, sklearn, XGBoost, LightGBM, nltk, Keras, arch, Gurobi, OR Tools
-- SQL
-- R
-- Microsoft Office
-  - Excel (@Risk, Decision Tree), Word, PowerPoint (Thinkcell)
-
-### Language
-- English 
-- German
-
----
-<p style="font-size:11px">Page template forked from <a href="https://github.com/evanca/quick-portfolio">evanca</a></p>
-<!-- Remove above link if you don't want to attibute -->
