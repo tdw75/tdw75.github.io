@@ -3,7 +3,6 @@
 1. [Projects](#projects)
 2. [Education](#education)
 3. [Experience](#experience)
-4. [Skills](#skills)
 
 ---
 
