@@ -9,7 +9,7 @@
 <a name="projects"></a>
 ## Projects 
 
-- [A different approach to hyperparameter optimisation using simulated annealing](/https://nbviewer.jupyter.org/github/tdw75/simulated-annealing-hyperparameter-opt/blob/master/hyperparameter_search_methods.ipynb)
+- [A different approach to hyperparameter optimisation using simulated annealing](https://nbviewer.jupyter.org/github/tdw75/simulated-annealing-hyperparameter-opt/blob/master/hyperparameter_search_methods.ipynb)
 - [Self written algorithms to solve various combinatorial optimisation problems](/optimisation_problems.md)
 - [An analysis the effect of company sentiment on stock price volatility](/stock_volatility/stock_volatility.md)
 - [Building a pricing recommendation system for AirBnB listings in Melbourne](/airbnb_pricing/airbnb_pricing.md)
